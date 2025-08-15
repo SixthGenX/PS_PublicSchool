@@ -16,7 +16,7 @@ import ContactForm from "../../components/ContactForm";
 export default function Home() {
   return (
     <>
-    <div className="bg-[#F9FAFB] text-[#111827]">
+    <div className="bg-[#F9FAFB] text-[#111827] overflow-x-hidden">
      
       <Hero />
       <SchoolInfo></SchoolInfo>

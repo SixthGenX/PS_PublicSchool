@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const data = [
   { emoji: "🏆", title: "20+ Years of Excellence", desc: "Shaping future leaders with pride and passion." },
@@ -10,8 +11,23 @@ const data = [
 
 export default function Highlights() {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8 text-center">
+    <section className="py-16 bg-white relative">
+       <Image
+        src="/images/line.png"
+        alt="School Building"
+        width={700}
+        height={650}
+        className="absolute w-full hidden md:block right-0 top-10"
+      ></Image>
+       <Image
+        src="/images/line2.png"
+        alt="School Building"
+        width={700}
+        height={650}
+        className="absolute w-full hidden md:block left-0 top-0"
+      ></Image>
+     
+      <div className="container mx-auto px-4 z-[9] relative grid md:grid-cols-3 gap-8 text-center">
         {data.map((item, index) => (
           <motion.div
             key={index}

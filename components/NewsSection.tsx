@@ -41,8 +41,8 @@ export default function NewsSection() {
   ];
 
   return (
-    <section className="py-16 bg-[#F9FAFB]">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-[#F9FAFB] relative">
+      <div className="container mx-auto px-4 z-[9] relative">
         <h2 className="text-3xl font-bold text-[#1E3A8A] mb-6 text-center">Latest News & Events</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {events.map((event) => (

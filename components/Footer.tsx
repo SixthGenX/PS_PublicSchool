@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { FaLocationArrow } from "react-icons/fa";
+import { FaLocationArrow, FaPhone } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="bg-[#1E3A8A] text-white pt-5 md:pt-0 pb-6">
       <div className="container mx-auto px-6 md:px-20 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
         {/* Quick Links */}
-        <div>
+        <div className="hidden md:block">
           <h3 className="text-lg font-semibold mb-3 md:mb-4">Quick Links</h3>
           <ul className="text-[#e2e2e2] space-y-2">
             <li>
@@ -51,9 +51,9 @@ export default function Footer() {
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold mb-3 md:mb-4">Contact Us</h3>
-          <p className="mb-1">📞 +91 98765 43210</p>
-          <p className="mb-1">📞 +91 91234 56789</p>
-          <p>📧 ps.school@example.com</p>
+          <p className="mb-1"> +91 98765 43210</p>
+          <p className="mb-1"> +91 91234 56789</p>
+          <p> ps.school@example.com</p>
         </div>
 
         {/* Location */}

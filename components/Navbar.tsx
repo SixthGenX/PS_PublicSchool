@@ -46,10 +46,10 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-[#1E3A8A] text-white shadow-md">
+    <nav className="bg-[#1E3A8A] text-white  sticky top-0 z-50 border-b-[0.1px] border-[#FBBF24]">
       <div className="container mx-auto px-4">
         {/* Top row */}
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-5">
           {/* Logo */}
          <Link href="/"> <h1 className="text-2xl font-bold tracking-wide">PS Public School</h1></Link>
 

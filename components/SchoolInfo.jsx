@@ -1,10 +1,20 @@
 "use client";
 
+import Image from "next/image";
+
 export default function SchoolInfo() {
   return (
-    <section className="bg-white py-14 px-6 text-center border-b border-gray-100">
-      <div className="max-w-3xl mx-auto">
-        
+    <section className="bg-white py-14 px-6 text-center border-b  border-gray-100 relative">
+      <Image
+        src="/images/line.png"
+        alt="School Building"
+        width={500}
+        height={450}
+        className="absolute w-full z-0 top-[50%] md:top-0"
+      ></Image>
+
+      
+      <div className="max-w-3xl mx-auto ">
         {/* School Name */}
         <h2 className="text-3xl md:text-4xl font-bold text-blue-700">
           PS Public School
@@ -17,9 +27,10 @@ export default function SchoolInfo() {
 
         {/* Description */}
         <p className="mt-5 text-gray-600 leading-relaxed">
-          At PS Public School, we focus on nurturing curiosity, fostering creativity,
-          and instilling strong values. Our classrooms blend modern teaching techniques
-          with traditional principles, ensuring students excel academically and personally.
+          At PS Public School, we focus on nurturing curiosity, fostering
+          creativity, and instilling strong values. Our classrooms blend modern
+          teaching techniques with traditional principles, ensuring students
+          excel academically and personally.
         </p>
 
         {/* CTA Button */}
