@@ -53,7 +53,7 @@ export default function Navbar() {
           {/* Logo */}
          <Link href="/"> <h1 className="text-2xl font-bold tracking-wide">PS Public School</h1></Link>
 
-          {/* Desktop Menu */}
+          
           <ul className="hidden md:flex space-x-8 text-lg font-medium">
             {menuItems.map((menu) => (
               <li key={menu.title} className="relative">
