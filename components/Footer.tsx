@@ -1,11 +1,19 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { FaLocationArrow, FaPhone } from "react-icons/fa";
+import { FaLocationArrow } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1E3A8A] text-white pt-5 md:pt-0 pb-6">
+    <footer className="bg-[#1E3A8A] overflow-hidden text-white pt-5 md:pt-0 pb-6 relative">
+         <Image
+        src="/images/group.png"
+        alt="School Building"
+        width={500}
+        height={20}
+        className="absolute  top-[-30px] md:right-0 right-[-150px] "
+      ></Image>
       <div className="container mx-auto px-6 md:px-20 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
         {/* Quick Links */}
         <div className="hidden md:block">
@@ -51,9 +59,9 @@ export default function Footer() {
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold mb-3 md:mb-4">Contact Us</h3>
-          <p className="mb-1"> +91 98765 43210</p>
+          <p className="mb-1 "> +91 98765 43210</p>
           <p className="mb-1"> +91 91234 56789</p>
-          <p> ps.school@example.com</p>
+          <p className="underline"> ps.school@example.com</p>
         </div>
 
         {/* Location */}

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#1E3A8A] md:h-[75vh] text-white ">
+    <section className="relative overflow-hidden bg-[#1E3A8A]  text-white ">
       <Image
         src="/images/line.png"
         alt="School Building"
@@ -20,7 +20,7 @@ export default function Hero() {
         height={250}
         className="absolute z-[9]  bottom-[-80px] left-[30%]"
       ></Image>
-      <div className="container mx-auto px-4 md:px-20 py-14 md:py-20 flex flex-col gap-6 md:flex-row items-center">
+      <div className="container mx-auto px-4 md:px-20 py-14 md:py-20 flex flex-col justify-between gap-6 md:flex-row items-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ export default function Hero() {
           className="md:w-1/2 mt-8 md:mt-0"
         >
           <Image
-            src="/images/homehero.jpg"
+            src="/images/homehero1.jpg"
             alt="School Building"
             width={500}
             height={450}
