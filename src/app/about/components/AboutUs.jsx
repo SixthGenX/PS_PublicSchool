@@ -1,36 +1,73 @@
 // src/pages/About.jsx
 import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function AboutUs() {
   return (
     <div className="bg-gray-50 text-gray-800">
-      {/* Header Section */}
-      {/* About Us Header (Matches School Branding) */}
-      <div className="bg-gray-50 py-12 px-6 text-center">
-        {/* Logo and School Name */}
-        <div className="flex flex-col items-center">
-          {/* <img
-      src="/images/logo-2.png" // replace with your logo path
-      alt="School Logo"
-      className="w-40 h-40 object-contain mb-4"
-    /> */}
-          <h1 className="text-5xl font-bold text-[#a04b6e] mb-2">
+      <section className="relative bg-gradient-to-b from-[#fce7f3] via-white to-[#f1f5f9] py-16 px-6">
+        <div className="flex flex-col items-center text-center">
+          {/* Animated School Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-7xl font-extrabold text-[#a04b6e] drop-shadow-md"
+          >
             PS PUBLIC SCHOOL
-          </h1>
-          <p className="text-lg text-red-800 mb-1">
-            GANAUR ROAD, BHURRI, ( SONIPAT )
-          </p>
-          <p className="italic text-red-700">
+          </motion.h1>
+
+          {/* School Address */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-lg md:text-xl text-red-800 mt-4 tracking-wide"
+          >
+            GANAUR ROAD, BHURRI, (SONIPAT)
+          </motion.p>
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="italic text-xl text-red-700 mt-2"
+          >
             A Unit of Pushp-Sanj Educational Society
-          </p>
-          <p className="text-xl font-semibold mt-2">CBSE Affiliated School</p>
-          <img
-            src="/images/logo-1.png" // replace with CBSE logo path
-            alt="CBSE Logo"
-            className="w-28 mt-4"
-          />
+          </motion.p>
+
+          {/* CBSE Info */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="text-2xl font-semibold mt-4 text-gray-700"
+          >
+            CBSE Affiliated School
+          </motion.p>
+
+          {/* Logo */}
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="mt-6"
+          >
+            <Image
+              src="/images/logo-1.png"
+              alt="CBSE Logo"
+              width={120}
+              height={120}
+              className="rounded-full shadow-xl border-4 border-pink-200 hover:scale-110 transition-transform duration-300"
+            />
+          </motion.div>
+
+          {/* Decorative Divider */}
+          <div className="mt-10 w-40 h-1 bg-gradient-to-r from-[#a04b6e] to-red-500 rounded-full shadow-md"></div>
         </div>
-      </div>
+      </section>
 
       {/* School History & Mission */}
       <section className="max-w-6xl mx-auto px-6 py-16 bg-gradient-to-br from-blue-50 to-white rounded-t-lg shadow-md">

@@ -13,14 +13,14 @@ export default function Navbar() {
       title: "About",
       links: [
         { name: "About Us", href: "/about" },
-        { name: "Staff & Faculty", href: "/staff" },
+        { name: "Staff & Faculty", href: "/staff-and-faculty" },
         { name: "Alumni", href: "/alumni" },
       ],
     },
     {
       title: "Academics",
       links: [
-        { name: "Academics Overview", href: "/academics" },
+        { name: "Academics Overview", href: "/academic" },
         { name: "Facilities", href: "/facilities" },
         { name: "Student Life", href: "/student-life" },
       ],

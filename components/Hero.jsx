@@ -5,21 +5,21 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#1E3A8A]  text-white ">
+    <section className="relative bg-[#1E3A8A] text-white overflow-hidden">
       <Image
         src="/images/line.png"
         alt="School Building"
         width={500}
         height={450}
         className="absolute w-full top-5 md:top-0"
-      ></Image>
+      />
       <Image
         src="/images/group.png"
         alt="School Building"
         width={500}
         height={250}
-        className="absolute z-[9]  bottom-[-80px] left-[30%]"
-      ></Image>
+        className="absolute z-[9] bottom-0 left-[30%] translate-y-1/3"
+      />
       <div className="container mx-auto px-4 md:px-20 py-14 md:py-20 flex flex-col justify-between gap-6 md:flex-row items-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

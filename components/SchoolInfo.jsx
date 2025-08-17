@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function SchoolInfo() {
   return (
-    <section className="bg-white py-14 px-6 text-center border-b  border-gray-100 relative">
+    <section className="bg-white py-14 px-6 text-center border-b overflow-hidden  border-gray-100 relative">
       <Image
         src="/images/line.png"
         alt="School Building"
