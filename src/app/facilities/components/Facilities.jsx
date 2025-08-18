@@ -21,7 +21,26 @@ export default function Facilities() {
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,
-    
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 640,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+  const settingsmobile = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: false,
     autoplaySpeed: 3000,
     responsive: [
       {
@@ -66,14 +85,14 @@ export default function Facilities() {
   return (
     <main className="bg-gray-50">
       {/* Hero Section */}
-      <section className="relative bg-blue-900 text-white py-20 md:py-28 px-4 md:px-6 text-center overflow-hidden">
+      <section className="relative bg-blue-900 text-white py-14 sm:py-20 px-4 md:px-6 text-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/images/group.png"
             alt="Facilities Background"
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-70"
           />
-          <div className="absolute inset-0 bg-blue-900/800"></div>
+          <div className="absolute inset-0 bg-blue-900/60"></div>
         </div>
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 md:mb-6">
@@ -88,7 +107,7 @@ export default function Facilities() {
       </section>
 
       {/* Facilities Section */}
-      <section className="relative bg-gray-50 text-gray-900 py-16 md:py-20 px-4 md:px-12 lg:px-20">
+      <section className="relative bg-gray-50 text-gray-900 py-12 md:py-20 px-4 md:px-12 lg:px-20">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-blue-800 mb-10 md:mb-16">
           Explore Our Facilities
         </h2>
@@ -131,16 +150,31 @@ export default function Facilities() {
         </p>
 
         {/* Image Carousel */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto hidden md:block">
           <Slider {...settings}>
             {images.map((src, i) => (
               <div key={i} className="px-2 sm:px-3">
                 <Image
                   src={src}
                   alt={`facility-${i}`}
-                  width={350}
-                  height={220}
-                  className="rounded-xl shadow-md object-cover mx-auto"
+                  width={800} // large enough base
+                  height={500}
+                  className="rounded-xl shadow-md object-cover w-full h-auto"
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+        <div className="max-w-6xl mx-auto block md:hidden ">
+          <Slider {...settingsmobile}>
+            {images.map((src, i) => (
+              <div key={i} className="px-2 sm:px-3">
+                <Image
+                  src={src}
+                  alt={`facility-${i}`}
+                  width={800} // large enough base
+                  height={500}
+                  className="rounded-xl shadow-md object-cover w-full h-auto"
                 />
               </div>
             ))}
@@ -181,11 +215,15 @@ export default function Facilities() {
           <blockquote className="bg-white/10 p-4 sm:p-6 rounded-2xl italic text-base sm:text-lg">
             "The labs and library have given me countless opportunities to learn
             beyond the classroom."
-            <span className="block mt-2 sm:mt-3 font-semibold">- Student A</span>
+            <span className="block mt-2 sm:mt-3 font-semibold">
+              - Student A
+            </span>
           </blockquote>
           <blockquote className="bg-white/10 p-4 sm:p-6 rounded-2xl italic text-base sm:text-lg">
             "Sports and hostel life made my school experience unforgettable!"
-            <span className="block mt-2 sm:mt-3 font-semibold">- Student B</span>
+            <span className="block mt-2 sm:mt-3 font-semibold">
+              - Student B
+            </span>
           </blockquote>
         </div>
       </section>

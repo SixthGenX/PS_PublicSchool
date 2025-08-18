@@ -15,6 +15,81 @@ import {
 } from "react-icons/fa";
 
 export default function Academic() {
+  const toppers = [
+    {
+      name: "Aarav Sharma",
+      class: "Class 12",
+      score: "97%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Priya Mehta",
+      class: "Class 12",
+      score: "96.4%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Rohan Gupta",
+      class: "Class 10",
+      score: "95.8%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Ishita Verma",
+      class: "Class 10",
+      score: "95.5%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Kabir Singh",
+      class: "Class 12",
+      score: "95.2%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Simran Kaur",
+      class: "Class 12",
+      score: "94.9%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Ananya Joshi",
+      class: "Class 10",
+      score: "94.7%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Aditya Kumar",
+      class: "Class 12",
+      score: "94.5%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Neha Singh",
+      class: "Class 10",
+      score: "94.3%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Vikram Patel",
+      class: "Class 12",
+      score: "94.1%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Meera Nair",
+      class: "Class 12",
+      score: "94%",
+      image: "/images/student.jpg",
+    },
+    {
+      name: "Rahul Sinha",
+      class: "Class 10",
+      score: "93.8%",
+      image: "/images/student.jpg",
+    },
+  ];
+
   const subjects = [
     {
       name: "Mathematics",
@@ -52,7 +127,8 @@ export default function Academic() {
     {
       name: "Arts & Music",
       icon: <FaPaintBrush className="text-pink-600 text-2xl sm:text-3xl" />,
-      description: "Nurturing creativity through visual arts, dance, and music.",
+      description:
+        "Nurturing creativity through visual arts, dance, and music.",
     },
     {
       name: "Environmental Studies",
@@ -67,17 +143,20 @@ export default function Academic() {
     },
   ];
 
-  const handleScroll = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+const handleScroll = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    const yOffset = -40; // stop 40px above
+    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+};
 
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-blue-900 text-white py-24 sm:py-32 px-4 sm:px-6 text-center overflow-hidden">
+      <section className="relative bg-blue-900 text-white py-14 sm:py-18 px-4 sm:px-6 text-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -85,7 +164,7 @@ export default function Academic() {
             alt="Academics Background"
             className="w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-blue-900/70 to-blue-900/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-900/70 to-blue-900/40"></div>
         </div>
 
         {/* Content */}
@@ -101,10 +180,10 @@ export default function Academic() {
           {/* Buttons */}
           <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 px-4">
             <button
-              onClick={() => handleScroll("curriculum")}
+              onClick={() => handleScroll("alumni")}
               className="px-6 sm:px-8 py-3 rounded-full bg-white text-blue-900 font-semibold shadow-lg hover:scale-105 transition text-sm sm:text-base"
             >
-              Curriculum Overview
+              Shining Stars of Success
             </button>
             <button
               onClick={() => handleScroll("subjects")}
@@ -117,7 +196,10 @@ export default function Academic() {
       </section>
 
       {/* Curriculum Overview */}
-      <section id="curriculum" className="relative bg-gray-50 py-16 sm:py-24 px-4 sm:px-8">
+      <section
+        id="curriculum"
+        className="relative bg-gray-50 py-10 sm:py-18 px-4 sm:px-8"
+      >
         <div className="relative max-w-5xl sm:max-w-6xl mx-auto text-center">
           <h2 className="text-3xl sm:text-5xl font-bold text-blue-900 mb-6 sm:mb-10 tracking-wide">
             Curriculum Overview
@@ -125,18 +207,22 @@ export default function Academic() {
           <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-800 max-w-3xl sm:max-w-4xl mx-auto px-2">
             Our curriculum is carefully designed to balance academic excellence,
             creativity, and holistic development. From foundational years to
-            higher classes, students experience a dynamic blend of traditional and
-            modern approaches to learning.
-            <br /><br />
-            We emphasize not just knowledge acquisition but also problem-solving,
-            critical thinking, and values that prepare students for the challenges
-            of tomorrow.
+            higher classes, students experience a dynamic blend of traditional
+            and modern approaches to learning.
+            <br />
+            <br />
+            We emphasize not just knowledge acquisition but also
+            problem-solving, critical thinking, and values that prepare students
+            for the challenges of tomorrow.
           </p>
         </div>
       </section>
 
       {/* Subjects Offered */}
-      <section id="subjects" className="bg-gradient-to-b from-blue-50 to-white py-16 sm:py-20 px-4 sm:px-6">
+      <section
+        id="subjects"
+        className="bg-gradient-to-b from-blue-50 to-white py-14 sm:py-18 px-4 sm:px-6"
+      >
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: -30 }}
@@ -179,7 +265,9 @@ export default function Academic() {
         <div className="grid gap-6 sm:gap-10 sm:grid-cols-2 md:grid-cols-3">
           <div className="p-6 bg-white shadow rounded-xl text-center">
             <Lightbulb className="mx-auto text-yellow-500 w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4" />
-            <h3 className="text-lg sm:text-xl font-semibold mb-2">Innovative Learning</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-2">
+              Innovative Learning
+            </h3>
             <p className="text-gray-600 text-sm sm:text-base">
               Hands-on activities, projects, and experiments to build practical
               knowledge.
@@ -187,7 +275,9 @@ export default function Academic() {
           </div>
           <div className="p-6 bg-white shadow rounded-xl text-center">
             <Users className="mx-auto text-blue-600 w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4" />
-            <h3 className="text-lg sm:text-xl font-semibold mb-2">Collaborative Approach</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-2">
+              Collaborative Approach
+            </h3>
             <p className="text-gray-600 text-sm sm:text-base">
               Group discussions, peer learning, and teamwork to enhance
               communication and leadership.
@@ -195,11 +285,62 @@ export default function Academic() {
           </div>
           <div className="p-6 bg-white shadow rounded-xl text-center">
             <BookOpen className="mx-auto text-green-600 w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4" />
-            <h3 className="text-lg sm:text-xl font-semibold mb-2">Personalized Attention</h3>
+            <h3 className="text-lg sm:text-xl font-semibold mb-2">
+              Personalized Attention
+            </h3>
             <p className="text-gray-600 text-sm sm:text-base">
-              Small class sizes and mentoring programs to cater to every student’s unique learning style.
+              Small class sizes and mentoring programs to cater to every
+              student’s unique learning style.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section  id="alumni" className="relative bg-blue-900 text-white py-12 sm:py-18 px-6 text-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/group.png"
+            alt="Toppers Background"
+            className="w-full h-full object-cover opacity-70"
+          />
+          <div className="absolute inset-0 bg-blue-900/70"></div>
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
+            Academic Toppers <span className="italic">(Past Years)</span>
+            <span className="block w-24 h-1 bg-white mx-auto mt-4 rounded-full"></span>
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-blue-100">
+            Meet our brightest stars who have excelled in academics and made us
+            proud.
+          </p>
+        </div>
+      </section>
+
+      {/* Toppers Grid */}
+      <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+          {toppers.map((topper, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-md overflow-hidden text-center hover:shadow-lg transition duration-300"
+            >
+              <img
+                src={topper.image}
+                alt={topper.name}
+                className="w-full h-[250px] object-cover"
+              />
+              <div className="p-4">
+                <h3 className=" text-sm md:text-lg font-bold text-blue-900">
+                  {topper.name}
+                </h3>
+                <p className="text-sm text-gray-600">{topper.class}</p>
+                <p className="text-md font-semibold text-blue-700 mt-1">
+                  {topper.score}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

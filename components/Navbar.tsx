@@ -10,11 +10,11 @@ export default function Navbar() {
 
   const menuItems = [
     {
-      title: "About",
+      title: "About Us",
       links: [
-        { name: "About Us", href: "/about" },
+        { name: "About School", href: "/about" },
         { name: "Staff & Faculty", href: "/staff-and-faculty" },
-        { name: "Alumni", href: "/alumni" },
+        { name: "Mandatory Disclosure", href: "/mandatory-public-disclosure" },
       ],
     },
     {
@@ -23,6 +23,16 @@ export default function Navbar() {
         { name: "Academics Overview", href: "/academic" },
         { name: "Facilities", href: "/facilities" },
         { name: "Student Life", href: "/student-life" },
+     
+      ],
+    },
+    {
+      title: "Student",
+      links: [
+        { name: "Students Result", href: "/results" },
+        { name: "Datesheet", href: "/datesheet" },
+        { name: "Online Fee Payment", href: "/payment" },
+        { name: "CBSE Result", href: "https://results.cbse.nic.in/" },
       ],
     },
     {
@@ -76,6 +86,7 @@ export default function Navbar() {
                       <li key={link.name}>
                         <Link
                           href={link.href}
+                          onClick={() => setOpenMenu(null)} 
                           className="block px-5 py-2 hover:bg-[#FBBF24] hover:text-[#111827] transition"
                         >
                           {link.name}

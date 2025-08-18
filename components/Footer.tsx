@@ -12,7 +12,7 @@ export default function Footer() {
         alt="School Building"
         width={500}
         height={20}
-        className="absolute  top-[-30px] md:right-0 right-[-150px] "
+        className="absolute top-[-100px] opacity-30 md:opacity-100  md:top-[-30px] md:right-0 right-[-150px] "
       ></Image>
       <div className="container mx-auto px-6 md:px-20 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
         {/* Quick Links */}

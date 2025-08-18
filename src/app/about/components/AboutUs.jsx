@@ -33,7 +33,7 @@ export default function AboutUs() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="italic text-xl text-red-700 mt-2"
+            className="text-lg md:text-xl text-red-800 mt-2"
           >
             A Unit of Pushp-Sanj Educational Society
           </motion.p>

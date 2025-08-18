@@ -125,14 +125,14 @@ export default function Facilities() {
     <main className="bg-gray-50">
       {/* Header */}
 
-      <section className="relative bg-blue-900 text-white py-20 md:py-28 px-4 md:px-6 text-center overflow-hidden">
+      <section className="relative bg-blue-900 text-white py-14 sm:py-20 px-4 md:px-6 text-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/images/group.png"
             alt="Facilities Background"
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-blue-900/800"></div>
+          <div className="absolute inset-0 bg-blue-900/70"></div>
         </div>
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 md:mb-6">
@@ -150,7 +150,7 @@ export default function Facilities() {
         <h2 className="text-2xl sm:text-4xl font-semibold text-blue-800 mb-10 text-center">
           Our Dedicated Staff
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {staff.map((person, index) => (
             <div
               key={index}
