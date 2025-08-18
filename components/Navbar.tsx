@@ -42,13 +42,13 @@ export default function Navbar() {
         { name: "Apply Online", href: "/applyform" },
       ],
     },
-    {
-      title: "Gallery",
-      links: [
-        { name: "Photo Gallery", href: "/gallery" },
-        { name: "News & Events", href: "/news" },
-      ],
-    },
+    // {
+    //   title: "Gallery",
+    //   links: [
+    //     { name: "Photo Gallery", href: "/gallery" },
+    //     { name: "News & Events", href: "/news" },
+    //   ],
+    // },
   ];
 
   const toggleDropdown = (title: string) => {
