@@ -38,8 +38,8 @@ export default function Navbar() {
     {
       title: "Admissions",
       links: [
-        { name: "Admissions Info", href: "/admissions" },
-        { name: "Apply Online", href: "/admissions#apply" },
+        { name: "Admissions Info", href: "/addimissioninfo" },
+        { name: "Apply Online", href: "/applyform" },
       ],
     },
     {

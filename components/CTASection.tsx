@@ -6,7 +6,7 @@ export default function CTASection() {
       <h2 className="text-3xl font-bold mb-4">Join Our School Today</h2>
       <p className="mb-6 font-light">Enroll your child in a nurturing, academic, and creative environment.</p>
       <a
-        href="/admissions"
+        href="/applyform"
         className="bg-[#FBBF24] text-[#111827] px-6 py-3 rounded-md font-semibold hover:bg-yellow-500 transition"
       >
         Apply Now 
