@@ -251,10 +251,10 @@ export default function AdmissionPage() {
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <a href="tel:+919876543210" className="flex items-center gap-2 bg-white text-blue-900 px-4 py-2.5 rounded-lg font-semibold hover:translate-y-[-1px] transition">
+            <a href="tel:+919416293661" className="flex items-center gap-2 bg-white text-blue-900 px-4 py-2.5 rounded-lg font-semibold hover:translate-y-[-1px] transition">
               <Phone size={18} /> Call
             </a>
-            <a href="mailto:admissions@example.com" className="flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2.5 rounded-lg font-semibold hover:bg-white/15 transition">
+            <a href="mailto:psbhurri@gmail.com" className="flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2.5 rounded-lg font-semibold hover:bg-white/15 transition">
               <Mail size={18} /> Email
             </a>
             <a href="https://maps.google.com" target="_blank" className="flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2.5 rounded-lg font-semibold hover:bg-white/15 transition">

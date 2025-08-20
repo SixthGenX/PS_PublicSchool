@@ -59,9 +59,9 @@ export default function Footer() {
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold mb-3 md:mb-4">Contact Us</h3>
-          <p className="mb-1 "> +91 98765 43210</p>
-          <p className="mb-1"> +91 91234 56789</p>
-          <p className="underline"> ps.school@example.com</p>
+          <p className="mb-1 "> +91 13066-90211</p>
+          <p className="mb-1 "> +91 94162-93661</p>
+          <p className="underline">psbhurri@gmail.com</p>
         </div>
 
         {/* Location */}
