@@ -42,13 +42,13 @@ export default function Navbar() {
         { name: "Apply Online", href: "/applyform" },
       ],
     },
-    // {
-    //   title: "Gallery",
-    //   links: [
-    //     { name: "Photo Gallery", href: "/gallery" },
-    //     { name: "News & Events", href: "/news" },
-    //   ],
-    // },
+    {
+      title: "Login",
+      links: [
+        { name: "Admin Login", href: "/admin-login" },
+
+      ],
+    },
   ];
 
   const toggleDropdown = (title: string) => {
@@ -81,7 +81,7 @@ export default function Navbar() {
 
                 {/* Dropdown */}
                 {openMenu === menu.title && (
-                  <ul className="absolute left-0 mt-3 w-56 bg-white text-[#111827] rounded-lg shadow-lg py-2 z-50">
+                  <ul className="absolute left-0 mt-3 w-54 bg-white text-[#111827] rounded-lg shadow-lg py-2 z-50">
                     {menu.links.map((link) => (
                       <li key={link.name}>
                         <Link
