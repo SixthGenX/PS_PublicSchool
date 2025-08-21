@@ -12,6 +12,7 @@ import Footer from "../../components/Footer";
 import AboutSection from "../../components/AboutSection";
 import SchoolInfo from "../../components/SchoolInfo";
 import ContactForm from "../../components/ContactForm";
+import GallerySection from "../../components/GallerySection";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <AboutSection></AboutSection>
       <NewsSection />
       <Highlights />
+      <GallerySection></GallerySection>
       <ContactForm />
       
     </div>

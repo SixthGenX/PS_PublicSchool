@@ -1,12 +1,15 @@
 "use client";
+
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
   const [adminId, setAdminId] = useState("");
   const [password, setPassword] = useState("");
-
+  
   const handleLogin = async (e) => {
     e.preventDefault();
+   
 
     // Example: send login data to backend (Node.js API)
     const res = await fetch("/api/admin/login", {
@@ -66,10 +69,18 @@ export default function Login() {
           {/* Login Button */}
           <button
             type="submit"
+           
             className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition"
           >
             Login
           </button>
+          <Link
+           
+            href={"/admin-login/adminhome"}
+            className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition"
+          >
+            Login Test
+          </Link>
         </form>
       </div>
     </div>
