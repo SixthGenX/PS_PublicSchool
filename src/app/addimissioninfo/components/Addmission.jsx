@@ -33,7 +33,7 @@ export default function AdmissionPage() {
   return (
     <main className="bg-gray-50 text-gray-800">
       {/* HERO */}
-      <section className="relative bg-blue-900 text-white py-16 sm:py-24 px-4 md:px-6 text-center overflow-hidden">
+      <section className="relative bg-blue-900 text-white py-16 md:py-18  px-4 md:px-6 text-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/images/group.png"
@@ -51,7 +51,7 @@ export default function AdmissionPage() {
             Join a culture of curiosity, character, and competence. Apply online or visit the school office.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <button
               onClick={() => scrollTo(feesRef.current)}
               className="px-5 sm:px-6 py-2.5 rounded-full bg-white text-blue-900 font-semibold shadow-lg hover:translate-y-[-1px] transition"
@@ -108,7 +108,7 @@ export default function AdmissionPage() {
       </section>
 
       {/* PROCEDURE */}
-      <section ref={procedureRef} id="procedure" className="max-w-6xl mx-auto px-4 md:px-6 py-14">
+      <section ref={procedureRef} id="procedure" className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-14">
         <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 text-center">Admission Procedure</h2>
         <p className="text-gray-600 text-sm sm:text-base text-center mt-2 max-w-3xl mx-auto">
           Apply online in minutes, or complete your application in person at the school office.
@@ -168,7 +168,7 @@ export default function AdmissionPage() {
 
       {/* FEE STRUCTURE */}
       <section ref={feesRef} id="fees" className="bg-white/60">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-14">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-14">
           <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 text-center">Fee Structure</h2>
           <p className="text-gray-600 text-sm sm:text-base text-center mt-2 max-w-3xl mx-auto">
             Fee slabs vary by class. Transport is optional and route-based. All amounts are indicative.
@@ -209,7 +209,7 @@ export default function AdmissionPage() {
       </section>
 
       {/* DOCUMENTS REQUIRED */}
-      <section className="max-w-6xl mx-auto px-4 md:px-6 py-14">
+      <section className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-14">
         <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 text-center">Documents Required</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
           {documents.map((d, i) => (

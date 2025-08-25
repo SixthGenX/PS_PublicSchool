@@ -102,23 +102,43 @@ export default function Facilities() {
       image: "/images/staff.jpg",
     },
   ];
+  const staffgroup = [
+    {
+      id: 1,
+      image: "/schoolimages/staff1.jpg",
+    },
+    {
+      id: 2,
+      image: "/schoolimages/staff2.jpg",
+    },
+    {
+      id: 3,
+      image: "/schoolimages/staff3.jpg",
+    },
+    {
+      id: 3,
+      image: "/schoolimages/staff1.jpg",
+    },
+   
+  ];
 
   const management = [
     {
-      name: "Principal Sharma",
+      name: "SH. Sanjiv Kumar",
+      role: "Director",
+      image: "/schoolimages/director.jpg",
+    },
+      {
+      name: "SH. Naveeen Kumar",
       role: "Principal",
-      image: "/images/aboutprinciple.jpg",
+      image: "/schoolimages/principal.jpg",
     },
     {
-      name: "Mr. Verma",
+      name: "Mrs. Anita Sharma",
       role: "Vice Principal",
-      image: "/images/aboutprinciple.jpg",
+      image: "/schoolimages/vprincipal.jpg",
     },
-    {
-      name: "Mrs. Iyer",
-      role: "Head of Administration",
-      image: "/images/aboutprinciple.jpg",
-    },
+ 
   ];
 
   return (
@@ -146,7 +166,7 @@ export default function Facilities() {
       </section>
 
       {/* Staff Section */}
-      <section className="bg-white py-16 px-4 sm:px-6">
+      {/* <section className="bg-white py-16 px-4 sm:px-6">
         <h2 className="text-2xl sm:text-4xl font-semibold text-blue-800 mb-10 text-center">
           Our Dedicated Staff
         </h2>
@@ -172,10 +192,33 @@ export default function Facilities() {
             </div>
           ))}
         </div>
+      </section> */}
+
+      <section className="bg-white py-10 md:py-16  px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-4xl font-semibold text-blue-800 mb-10 text-center">
+          Our Dedicated Staff
+        </h2>
+
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {staffgroup.map((person, index) => (
+            <div
+              key={index}
+              className="overflow-hidden rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
+            >
+              <Image
+                src={person.image}
+                alt={`Staff ${index + 1}`}
+                width={300}
+                height={300}
+                className="w-full h-48 sm:h-60 md:h-72 object-cover"
+              />
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Management Section */}
-      <section className="bg-blue-50 py-14 sm:py-16 px-4 sm:px-6">
+      <section className="bg-blue-50 py-10 md:py-16 px-4 sm:px-6">
         <h2 className="text-2xl sm:text-4xl font-semibold text-blue-800 mb-10 text-center">
           School Management
         </h2>
@@ -204,7 +247,7 @@ export default function Facilities() {
       </section>
 
       {/* Teachers' Thoughts */}
-      <section className="bg-gradient-to-b from-blue-50 to-white pb-12 sm:pb-14 pt-8 sm:pt-10 px-4 sm:px-16 lg:px-28 text-center">
+      <section className="bg-gradient-to-b from-blue-50 to-white pb-12 sm:pb-14 pt-5 sm:pt-10 px-4 sm:px-16 lg:px-28 text-center">
         <h2 className="text-2xl sm:text-4xl font-bold text-blue-800 mb-4 sm:mb-6">
           Teachers’ Thoughts
         </h2>

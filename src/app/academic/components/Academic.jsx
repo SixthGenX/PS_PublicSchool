@@ -143,15 +143,16 @@ export default function Academic() {
     },
   ];
 
-const handleScroll = (id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    const yOffset = -40; // stop 40px above
-    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const yOffset = -40; // stop 40px above
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
-};
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -296,7 +297,10 @@ const handleScroll = (id) => {
         </div>
       </section>
 
-      <section  id="alumni" className="relative bg-blue-900 text-white py-12 sm:py-18 px-6 text-center overflow-hidden">
+      <section
+        id="alumni"
+        className="relative bg-blue-900 text-white py-12 sm:py-18 px-6 text-center overflow-hidden"
+      >
         <div className="absolute inset-0">
           <img
             src="/images/group.png"
@@ -356,11 +360,11 @@ const handleScroll = (id) => {
             and school activities throughout the year.
           </p>
           <a
-            href="/calendar.pdf"
-            target="_blank"
+            href="/files/academic-calendar.pdf"
+            download="/files/academic-calendar.pdf" // 👈 forces download with a file name
             className="bg-blue-700 text-white px-5 sm:px-6 py-3 rounded-lg font-medium hover:bg-blue-800 transition text-sm sm:text-base"
           >
-            View Academic Calendar
+            Download Academic Calendar
           </a>
         </div>
       </section>

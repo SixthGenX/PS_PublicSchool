@@ -17,17 +17,15 @@ import GallerySection from "../../components/GallerySection";
 export default function Home() {
   return (
     <>
-    <div className="bg-[#F9FAFB] text-[#111827] ">
-     
-      <Hero />
-      <SchoolInfo></SchoolInfo>
-      <AboutSection></AboutSection>
-      <NewsSection />
-      <Highlights />
-      <GallerySection></GallerySection>
-      <ContactForm />
-      
-    </div>
+      <div className="bg-[#F9FAFB] text-[#111827] ">
+        <Hero />
+        <SchoolInfo></SchoolInfo>
+        <AboutSection></AboutSection>
+        <NewsSection />
+        <Highlights />
+        <GallerySection></GallerySection>
+        <ContactForm />
+      </div>
     </>
   );
 }

@@ -110,7 +110,7 @@ export default function AboutUs() {
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-8">
           <img
-            src="images/aboutprinciple.jpg"
+            src="/schoolimages/principal.jpg"
             alt="Principal"
             className="rounded-full w-48 h-48 object-cover border-4 border-blue-500 shadow-md"
           />
@@ -129,7 +129,7 @@ export default function AboutUs() {
               build a brighter tomorrow.”
             </p>
             <p className="mt-4 font-semibold text-blue-700">
-              — Dr. Jane Smith, Principal
+              — SH. Naveeen Kumar, Principal
             </p>
           </div>
         </div>
@@ -146,14 +146,14 @@ export default function AboutUs() {
             {/* Director */}
             <div className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <img
-                src="/images/aboutprinciple.jpg"
+                src="/schoolimages/director.jpg"
                 alt="Director"
                 className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-blue-500"
               />
               <h3 className="mt-4 text-xl font-semibold text-gray-800">
-                Mr. Rajesh Kumar
+                SH. Sanjiv Kumar
               </h3>
-              <p className="text-blue-600 font-medium">Director</p>
+              <p className="text-[#1E3A8A] font-medium">Director</p>
               <p className="mt-2 text-gray-600 text-sm leading-relaxed">
                 Providing visionary leadership to ensure academic excellence and
                 holistic development of students.
@@ -163,14 +163,14 @@ export default function AboutUs() {
             {/* Vice Principal */}
             <div className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <img
-                src="/images/aboutprinciple.jpg"
+                src="/schoolimages/vprincipal.jpg"
                 alt="Vice Principal"
                 className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-blue-500"
               />
               <h3 className="mt-4 text-xl font-semibold text-gray-800">
-                Mrs. Priya Sharma
+                Mrs. Anita Sharma
               </h3>
-              <p className="text-blue-600 font-medium">Vice Principal</p>
+              <p className="text-[#1E3A8A] font-medium">Vice Principal</p>
               <p className="mt-2 text-gray-600 text-sm leading-relaxed">
                 Supporting academic programs and fostering a positive, inclusive
                 school culture.
@@ -185,9 +185,9 @@ export default function AboutUs() {
                 className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-blue-500"
               />
               <h3 className="mt-4 text-xl font-semibold text-gray-800">
-                Mr. Anil Verma
+                SH. Ram Lal
               </h3>
-              <p className="text-blue-600 font-medium">Headmaster</p>
+              <p className="text-[#1E3A8A] font-medium">Headmaster</p>
               <p className="mt-2 text-gray-600 text-sm leading-relaxed">
                 Overseeing daily operations and ensuring the highest standards
                 of teaching and learning.
