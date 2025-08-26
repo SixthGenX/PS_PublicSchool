@@ -1,32 +1,103 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ResultUpdate() {
   const [formData, setFormData] = useState({
-    rollNo: "",
+    rollNumber: "",
     name: "",
     marks: "",
     class: "1",
-    status: "Pass",
+    status: "PASS",
   });
 
-  const [results, setResults] = useState([
-    { id: 1, rollNo: "101", name: "Aarav Sharma", marks: 89, class: "10", status: "Pass" },
-    { id: 2, rollNo: "102", name: "Priya Verma", marks: 45, class: "8", status: "Pass" },
-    { id: 3, rollNo: "103", name: "Rohan Mehta", marks: 32, class: "12", status: "Fail" },
-    { id: 4, rollNo: "104", name: "Sneha Patel", marks: 76, class: "7", status: "Pass" },
-    { id: 5, rollNo: "105", name: "Aditya Singh", marks: 28, class: "9", status: "Fail" },
-  ]);
-
+  const [results, setResults] = useState([]);
   const [confirmDeleteIndex, setConfirmDeleteIndex] = useState(null);
   const [confirmDeleteAll, setConfirmDeleteAll] = useState(false);
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  // ✅ Fetch Results (GET API)
+  useEffect(() => {
+    const fetchResults = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/result`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            },
+          }
+        );
 
-  const handleSubmit = (e) => {
+        let data = null;
+        try {
+          data = await res.json();
+        } catch (_) {}
+
+        if (res.ok) {
+          setResults(data?.body?.results || []);
+        } else {
+          console.error("Failed to fetch results:", data?.message);
+        }
+      } catch (err) {
+        console.error("Error fetching results:", err);
+      }
+    };
+
+    fetchResults();
+  }, []);
+
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  // ✅ Add Result (POST API)
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setResults([...results, { ...formData, id: Date.now() }]);
-    setFormData({ rollNo: "", name: "", marks: "", class: "1", status: "Pass" });
+
+    const payload = {
+      ...formData,
+      marks: Number(formData.marks),
+      rollNumber: Number(formData.rollNumber),
+      class: String(`CLASS_${formData.class}`),
+    };
+
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/result/create`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            token: `Bearer ${localStorage.getItem("adminToken")}`,
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      let data = null;
+      try {
+        data = await res.json();
+      } catch (_) {}
+
+      if (res.ok) {
+        const created = data?.body?.result || { id: Date.now(), ...payload };
+        setResults((prev) => [...prev, created]);
+
+        setFormData({
+          rollNumber: "",
+          name: "",
+          marks: "",
+          class: "1",
+          status: "Pass",
+        });
+
+        alert("Result added successfully!");
+      } else {
+        alert(data?.message || "Failed to add result");
+      }
+    } catch (err) {
+      console.error("Error adding result:", err);
+    }
   };
 
   const confirmDeleteOne = (index) => {
@@ -52,13 +123,16 @@ export default function ResultUpdate() {
         </h2>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
+        >
           <div>
             <label className="block text-sm font-medium mb-1">Roll No*</label>
             <input
-              type="text"
-              name="rollNo"
-              value={formData.rollNo}
+              type="number"
+              name="rollNumber"
+              value={formData.rollNumber}
               onChange={handleChange}
               className="w-full p-2 border rounded-lg"
               required
@@ -113,8 +187,8 @@ export default function ResultUpdate() {
               onChange={handleChange}
               className="w-full p-2 border rounded-lg"
             >
-              <option value="Pass">Pass</option>
-              <option value="Fail">Fail</option>
+              <option value="PASS">Pass</option>
+              <option value="FAIL">Fail</option>
             </select>
           </div>
 
@@ -148,14 +222,16 @@ export default function ResultUpdate() {
                   {[...results]
                     .sort((a, b) => Number(a.class) - Number(b.class))
                     .map((res, index) => (
-                      <tr key={index} className="text-center">
-                        <td className="border p-2">{res.rollNo}</td>
+                      <tr key={res.id || index} className="text-center">
+                        <td className="border p-2">{res.rollNumber}</td>
                         <td className="border p-2">{res.name}</td>
                         <td className="border p-2">{res.marks}</td>
                         <td className="border p-2">Class {res.class}</td>
                         <td
                           className={`border p-2 font-semibold ${
-                            res.status === "Pass" ? "text-green-600" : "text-red-600"
+                            res.status === "Pass"
+                              ? "text-green-600"
+                              : "text-red-600"
                           }`}
                         >
                           {res.status}
@@ -181,54 +257,6 @@ export default function ResultUpdate() {
               >
                 Delete All
               </button>
-            </div>
-          </div>
-        )}
-
-        {/* Confirmation Modal - Delete One */}
-        {confirmDeleteIndex !== null && (
-          <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-6 w-80 shadow-lg">
-              <h3 className="text-lg font-semibold mb-4 text-center">Confirm Delete</h3>
-              <p className="mb-6 text-center">Are you sure you want to delete this entry?</p>
-              <div className="flex justify-between">
-                <button
-                  onClick={() => setConfirmDeleteIndex(null)}
-                  className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleDeleteConfirmed}
-                  className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Confirmation Modal - Delete All */}
-        {confirmDeleteAll && (
-          <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-6 w-80 shadow-lg">
-              <h3 className="text-lg font-semibold mb-4 text-center">Confirm Delete All</h3>
-              <p className="mb-6 text-center">Are you sure you want to delete all results?</p>
-              <div className="flex justify-between">
-                <button
-                  onClick={() => setConfirmDeleteAll(false)}
-                  className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleDeleteAllConfirmed}
-                  className="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800"
-                >
-                  Delete All
-                </button>
-              </div>
             </div>
           </div>
         )}

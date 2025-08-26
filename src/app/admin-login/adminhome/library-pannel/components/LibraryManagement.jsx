@@ -1,17 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function LibraryManagement() {
   const [books, setBooks] = useState([]);
-
+  const date = new Date();
   const [formData, setFormData] = useState({
     bookTitle: "",
     bookNumber: "",
     class: "CLASS_1",
     studentName: "",
     rollNo: "",
-    bookStatus: "Issued",
+    bookStatus: "ISSUED",
   });
 
   const handleChange = (e) => {
@@ -19,29 +19,60 @@ export default function LibraryManagement() {
     setFormData((s) => ({ ...s, [name]: value }));
   };
 
-  // Add new book (POST)
+
+  const fetchBooks = async () => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/library/total?assignedOnly=true`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            token: `Bearer ${localStorage.getItem("adminToken")}`,
+          },
+        }
+      );
+
+      let data = null;
+      try {
+        data = await res.json();
+      } catch (_) {}
+
+      if (res.ok) {
+        setBooks(data?.body?.books || []); // Adjust key based on API response
+
+        console.log(data?.body?.books);
+      } else {
+        console.error("Failed to fetch books:", data?.message);
+      }
+    } catch (err) {
+      console.error("Error fetching books:", err);
+    }
+  };
+
+  //  Fetch all books (GET API)
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  // Add new book (POST API)
   const handleAddBook = async (e) => {
     e.preventDefault();
-
     const payload = {
       ...formData,
       class: String(`CLASS_${formData.class}`),
       rollNo: formData.rollNo ? Number(formData.rollNo) : "",
     };
-
     try {
       console.log("Adding book with payload:", payload);
-
-      const token = localStorage.getItem("adminToken");
-
+      const tokens = localStorage.getItem("adminToken");
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/library`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
-            token: `Bearer ${localStorage.getItem("adminToken")}`,
+            Authorization: `Bearer ${tokens}`,
+            token: `Bearer ${tokens}`,
           },
           body: JSON.stringify(payload),
         }
@@ -54,7 +85,6 @@ export default function LibraryManagement() {
 
       if (res.ok) {
         const created = data?.body?.book || { id: Date.now(), ...payload };
-
         setBooks((prev) => [...prev, created]);
 
         setFormData({
@@ -63,29 +93,32 @@ export default function LibraryManagement() {
           class: "CLASS_1",
           studentName: "",
           rollNo: "",
-          bookStatus: "Issued",
+          bookStatus: "ISSUED",
         });
 
         alert("Book added successfully!");
+        fetchBooks();
       } else {
         alert(data?.message || "Failed to add book");
+        fetchBooks();
       }
     } catch (err) {
       console.error("Error adding book:", err);
-      // alert("Something went wrong!");
     }
   };
 
+  // ✅ Delete book (local only for now)
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this book?")) {
       setBooks((prev) => prev.filter((b) => b.id !== id));
     }
   };
 
-  const sortedBooks = [...books].sort(
-    (a, b) => Number(a.class) - Number(b.class)
-  );
-
+  // const sortedBooks = [...books].sort(
+  //   (a, b) =>
+  //     Number(a.class.replace("CLASS_", "")) -
+  //     Number(b.class.replace("CLASS_", ""))
+  // );
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6">
       <h1 className="text-2xl sm:text-3xl font-bold text-center text-[#1E3A8A] mb-8">
@@ -111,7 +144,7 @@ export default function LibraryManagement() {
             className="border p-2 rounded w-full"
           />
           <input
-            type="text"
+            type="number"
             name="bookNumber"
             placeholder="Book No."
             value={formData.bookNumber}
@@ -127,13 +160,11 @@ export default function LibraryManagement() {
             className="border p-2 rounded w-full"
           >
             <option value="">Select Class</option>
-            {Array.from({ length: 12 }, (_, i) => `${i + 1}`).map(
-              (opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              )
-            )}
+            {Array.from({ length: 12 }, (_, i) => `${i + 1}`).map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
           </select>
 
           <input
@@ -177,7 +208,7 @@ export default function LibraryManagement() {
         <table className="w-full border border-gray-200 text-sm sm:text-base min-w-[700px]">
           <thead>
             <tr className="bg-indigo-100">
-              <th className="p-2 border">ID</th>
+              <th className="p-2 border">Date</th>
               <th className="p-2 border">Title</th>
               <th className="p-2 border">Book No.</th>
               <th className="p-2 border">Class</th>
@@ -188,15 +219,15 @@ export default function LibraryManagement() {
             </tr>
           </thead>
           <tbody>
-            {sortedBooks.map((book, idx) => (
+            {books.map((book, idx) => (
               <tr key={book.id || idx} className="text-center">
-                <td className="p-2 border">{book.id || "-"}</td>
-                <td className="p-2 border">{book.bookTitle}</td>
-                <td className="p-2 border">{book.bookNumber}</td>
-                <td className="p-2 border">Class {book.class}</td>
-                <td className="p-2 border">{book.issuedTo || "-"}</td>
-                <td className="p-2 border">{book.rollNo || "-"}</td>
-                <td className="p-2 border text-green-600">{book.bookStatus}</td>
+                 <td className="p-2 border">{book?.createdAt ? new Date(book.createdAt).toLocaleDateString() : "-"}</td>
+                <td className="p-2 border">{book?.bookTitle}</td>
+                <td className="p-2 border">{book?.bookNumber}</td>
+                <td className="p-2 border">{book?.issuedTo?.class}</td>
+                <td className="p-2 border">{book?.issuedTo?.name || "-"}</td>
+                <td className="p-2 border">{book?.issuedTo?.rollNumber || "-"}</td>
+                <td className="p-2 border text-green-600">{book?.bookStatus}</td>
                 <td className="p-2 border">
                   <button
                     onClick={() => handleDelete(book.id)}
