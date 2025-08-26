@@ -70,7 +70,7 @@ export async function POST(req) {
       html: mailHtml,
     };
 
-    await transporter.sendMail(applicantMail);
+    // await transporter.sendMail(applicantMail);
     await transporter.sendMail(adminMail);
 
     return NextResponse.json({

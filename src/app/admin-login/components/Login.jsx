@@ -1,28 +1,35 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Login() {
-  const [adminId, setAdminId] = useState("");
-  const [password, setPassword] = useState("");
-  
+  const [email, setemail] = useState("Admin-Pannel@PS-School.com");
+  const [password, setPassword] = useState("Ps@admin2000#");
+  const navigate = useRouter();
+
   const handleLogin = async (e) => {
     e.preventDefault();
-   
 
     // Example: send login data to backend (Node.js API)
-    const res = await fetch("/api/admin/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ adminId, password }),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/user/login`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      }
+    );
 
     const data = await res.json();
     if (res.ok) {
-      alert("Login Successful!");
+      // alert("Login Successful!");
       // redirect to dashboard
-      window.location.href = "/admin/dashboard";
+      // window.location.href = "/admin-login/adminhome";
+      console.log(data);
+      localStorage.setItem("adminToken", data.body.accessToken);
+      navigate.push('/admin-login/adminhome')
     } else {
       alert(data.message || "Invalid credentials");
     }
@@ -43,8 +50,8 @@ export default function Login() {
             </label>
             <input
               type="text"
-              value={adminId}
-              onChange={(e) => setAdminId(e.target.value)}
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
               placeholder="Enter Admin ID"
@@ -69,18 +76,10 @@ export default function Login() {
           {/* Login Button */}
           <button
             type="submit"
-           
             className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition"
           >
             Login
           </button>
-          <Link
-           
-            href={"/admin-login/adminhome"}
-            className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition"
-          >
-            Login Test
-          </Link>
         </form>
       </div>
     </div>

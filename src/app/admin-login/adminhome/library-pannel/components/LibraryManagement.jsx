@@ -3,95 +3,93 @@
 import { useState } from "react";
 
 export default function LibraryManagement() {
-  const [books, setBooks] = useState([
-    {
-      id: 1,
-      title: "Mathematics Grade 6",
-      author: "R.K. Sharma",
-      class: 6,
-      issuedTo: "Aman",
-      rollNo: 21,
-      status: "Issued",
-    },
-    {
-      id: 2,
-      title: "Science Grade 10",
-      author: "Neha Gupta",
-      class: 10,
-      issuedTo: "",
-      rollNo: "",
-      status: "Issued",
-    },
-    {
-      id: 3,
-      title: "English Grammar Grade 8",
-      author: "S. Kumar",
-      class: 8,
-      issuedTo: "Priya",
-      rollNo: 14,
-      status: "Issued",
-    },
-    {
-      id: 4,
-      title: "History Grade 12",
-      author: "Vikas Mehta",
-      class: 12,
-      issuedTo: "",
-      rollNo: "",
-      status: "Issued",
-    },
-  ]);
+  const [books, setBooks] = useState([]);
 
   const [formData, setFormData] = useState({
-    title: "",
-    author: "",
-    class: "",
-    issuedTo: "",
+    bookTitle: "",
+    bookNumber: "",
+    class: "CLASS_1",
+    studentName: "",
     rollNo: "",
-    status: "Issued",
+    bookStatus: "Issued",
   });
 
-  // handle input change
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((s) => ({ ...s, [name]: value }));
   };
 
-  // add new book
-  const handleAddBook = (e) => {
+  // Add new book (POST)
+  const handleAddBook = async (e) => {
     e.preventDefault();
-    const newBook = {
-      id: books.length + 1,
-      ...formData,
-      class: Number(formData.class),
-    };
-    setBooks([...books, newBook]);
-    setFormData({
-      title: "",
-      author: "",
-      class: "",
-      issuedTo: "",
-      rollNo: "",
-      status: "Issued",
-    });
-  };
 
-  // delete book with confirmation
-  const handleDelete = (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this book?"
-    );
-    if (confirmDelete) {
-      setBooks(books.filter((book) => book.id !== id));
+    const payload = {
+      ...formData,
+      class: String(`CLASS_${formData.class}`),
+      rollNo: formData.rollNo ? Number(formData.rollNo) : "",
+    };
+
+    try {
+      console.log("Adding book with payload:", payload);
+
+      const token = localStorage.getItem("adminToken");
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/library`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            token: `Bearer ${localStorage.getItem("adminToken")}`,
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      let data = null;
+      try {
+        data = await res.json();
+      } catch (_) {}
+
+      if (res.ok) {
+        const created = data?.body?.book || { id: Date.now(), ...payload };
+
+        setBooks((prev) => [...prev, created]);
+
+        setFormData({
+          bookTitle: "",
+          bookNumber: "",
+          class: "CLASS_1",
+          studentName: "",
+          rollNo: "",
+          bookStatus: "Issued",
+        });
+
+        alert("Book added successfully!");
+      } else {
+        alert(data?.message || "Failed to add book");
+      }
+    } catch (err) {
+      console.error("Error adding book:", err);
+      // alert("Something went wrong!");
     }
   };
 
-  // sort by class
-  const sortedBooks = [...books].sort((a, b) => a.class - b.class);
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this book?")) {
+      setBooks((prev) => prev.filter((b) => b.id !== id));
+    }
+  };
+
+  const sortedBooks = [...books].sort(
+    (a, b) => Number(a.class) - Number(b.class)
+  );
 
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6">
       <h1 className="text-2xl sm:text-3xl font-bold text-center text-[#1E3A8A] mb-8">
-         School Library Management
+        School Library Management
       </h1>
 
       {/* Add Book Form */}
@@ -105,18 +103,18 @@ export default function LibraryManagement() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             type="text"
-            name="title"
+            name="bookTitle"
             placeholder="Book Title"
-            value={formData.title}
+            value={formData.bookTitle}
             onChange={handleChange}
             required
             className="border p-2 rounded w-full"
           />
           <input
             type="text"
-            name="author"
+            name="bookNumber"
             placeholder="Book No."
-            value={formData.author}
+            value={formData.bookNumber}
             onChange={handleChange}
             required
             className="border p-2 rounded w-full"
@@ -129,17 +127,20 @@ export default function LibraryManagement() {
             className="border p-2 rounded w-full"
           >
             <option value="">Select Class</option>
-            {[...Array(12).keys()].map((num) => (
-              <option key={num + 1} value={num + 1}>
-                Class {num + 1}
-              </option>
-            ))}
+            {Array.from({ length: 12 }, (_, i) => `${i + 1}`).map(
+              (opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              )
+            )}
           </select>
+
           <input
             type="text"
-            name="issuedTo"
+            name="studentName"
             placeholder="Issued To (Student Name)"
-            value={formData.issuedTo}
+            value={formData.studentName}
             onChange={handleChange}
             className="border p-2 rounded w-full"
           />
@@ -152,8 +153,8 @@ export default function LibraryManagement() {
             className="border p-2 rounded w-full"
           />
           <select
-            name="status"
-            value={formData.status}
+            name="bookStatus"
+            value={formData.bookStatus}
             onChange={handleChange}
             className="border p-2 rounded w-full"
           >
@@ -187,15 +188,15 @@ export default function LibraryManagement() {
             </tr>
           </thead>
           <tbody>
-            {sortedBooks.map((book) => (
-              <tr key={book.id} className="text-center">
-                <td className="p-2 border">{book.id}</td>
-                <td className="p-2 border">{book.title}</td>
-                <td className="p-2 border">{book.author}</td>
+            {sortedBooks.map((book, idx) => (
+              <tr key={book.id || idx} className="text-center">
+                <td className="p-2 border">{book.id || "-"}</td>
+                <td className="p-2 border">{book.bookTitle}</td>
+                <td className="p-2 border">{book.bookNumber}</td>
                 <td className="p-2 border">Class {book.class}</td>
                 <td className="p-2 border">{book.issuedTo || "-"}</td>
                 <td className="p-2 border">{book.rollNo || "-"}</td>
-                <td className="p-2 border text-green-600">{book.status}</td>
+                <td className="p-2 border text-green-600">{book.bookStatus}</td>
                 <td className="p-2 border">
                   <button
                     onClick={() => handleDelete(book.id)}
@@ -208,7 +209,7 @@ export default function LibraryManagement() {
             ))}
             {books.length === 0 && (
               <tr>
-                <td colSpan="8" className="text-center p-4 text-gray-500">
+                <td colSpan={8} className="text-center p-4 text-gray-500">
                   No books in library.
                 </td>
               </tr>

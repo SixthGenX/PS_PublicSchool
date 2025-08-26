@@ -45,7 +45,7 @@ export default function Navbar() {
     {
       title: "Login",
       links: [
-        { name: "Admin Login", href: "/admin-login" },
+        { name: "Admin Login", href: "/s" },
 
       ],
     },
