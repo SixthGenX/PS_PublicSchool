@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 export default function LibraryManagement() {
   const [books, setBooks] = useState([]);
+  const [confirmation, setConfirmation] = useState(null);
+
   const date = new Date();
   const [formData, setFormData] = useState({
     bookTitle: "",
@@ -18,7 +20,6 @@ export default function LibraryManagement() {
     const { name, value } = e.target;
     setFormData((s) => ({ ...s, [name]: value }));
   };
-
 
   const fetchBooks = async () => {
     try {
@@ -114,11 +115,35 @@ export default function LibraryManagement() {
     }
   };
 
-  // const sortedBooks = [...books].sort(
-  //   (a, b) =>
-  //     Number(a.class.replace("CLASS_", "")) -
-  //     Number(b.class.replace("CLASS_", ""))
-  // );
+  const handleDeleteById = async (id) => {
+    if (!id) return alert("❌ ID is required!");
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/library/${id}`, // 🔹 dynamic id in URL
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            token: `Bearer ${localStorage.getItem("adminToken")}`,
+          },
+        }
+      );
+
+      if (res.ok) {
+        fetchBooks();
+        setConfirmation(null);
+      } else {
+        fetchBooks();
+        setConfirmation(null);
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      fetchBooks();
+      setConfirmation(null);
+    } finally {
+    }
+  };
   return (
     <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6">
       <h1 className="text-2xl sm:text-3xl font-bold text-center text-[#1E3A8A] mb-8">
@@ -221,16 +246,24 @@ export default function LibraryManagement() {
           <tbody>
             {books.map((book, idx) => (
               <tr key={book.id || idx} className="text-center">
-                 <td className="p-2 border">{book?.createdAt ? new Date(book.createdAt).toLocaleDateString() : "-"}</td>
+                <td className="p-2 border">
+                  {book?.createdAt
+                    ? new Date(book.createdAt).toLocaleDateString()
+                    : "-"}
+                </td>
                 <td className="p-2 border">{book?.bookTitle}</td>
                 <td className="p-2 border">{book?.bookNumber}</td>
                 <td className="p-2 border">{book?.issuedTo?.class}</td>
                 <td className="p-2 border">{book?.issuedTo?.name || "-"}</td>
-                <td className="p-2 border">{book?.issuedTo?.rollNumber || "-"}</td>
-                <td className="p-2 border text-green-600">{book?.bookStatus}</td>
+                <td className="p-2 border">
+                  {book?.issuedTo?.rollNumber || "-"}
+                </td>
+                <td className="p-2 border text-green-600">
+                  {book?.bookStatus}
+                </td>
                 <td className="p-2 border">
                   <button
-                    onClick={() => handleDelete(book.id)}
+                    onClick={() => setConfirmation(book._id)}
                     className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
                   >
                     Delete
@@ -248,6 +281,38 @@ export default function LibraryManagement() {
           </tbody>
         </table>
       </div>
+
+      {confirmation !== null && (
+        <div className="fixed inset-0 bg-black/60 bg-opacity-40 flex items-center justify-center z-50">
+          {" "}
+          <div className="bg-white rounded-lg p-6 w-80 shadow-lg">
+            {" "}
+            <h3 className="text-lg font-semibold mb-4 text-center">
+              Confirm Delete
+            </h3>{" "}
+            <p className="mb-6 text-center">
+              Are you sure you want to delete this entry?
+            </p>{" "}
+            <div className="flex justify-between">
+              {" "}
+              <button
+                onClick={() => setConfirmation(null)}
+                className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+              >
+                {" "}
+                Cancel{" "}
+              </button>{" "}
+              <button
+                onClick={() => handleDeleteById(confirmation)}
+                className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+              >
+                {" "}
+                Delete{" "}
+              </button>{" "}
+            </div>{" "}
+          </div>{" "}
+        </div>
+      )}
     </div>
   );
 }

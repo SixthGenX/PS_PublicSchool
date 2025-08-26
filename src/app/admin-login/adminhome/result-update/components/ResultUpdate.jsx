@@ -15,34 +15,65 @@ export default function ResultUpdate() {
   const [confirmDeleteAll, setConfirmDeleteAll] = useState(false);
 
   // ✅ Fetch Results (GET API)
-  useEffect(() => {
-    const fetchResults = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/result`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
-            },
-          }
-        );
 
-        let data = null;
-        try {
-          data = await res.json();
-        } catch (_) {}
+ function transformResults(data) {
+  return data
+    .map((item) => {
+      // extract class number → "CLASS_1" → 1
+      const classNumber = Number(item.class.replace("CLASS_", ""));
 
-        if (res.ok) {
-          setResults(data?.body?.results || []);
-        } else {
-          console.error("Failed to fetch results:", data?.message);
-        }
-      } catch (err) {
-        console.error("Error fetching results:", err);
+      return {
+        id: item._id,
+        classNumber,
+        rollNumber: item.rollNumber,
+        name: item.studentId?.name || "Unknown",
+        marks: item.marks,
+        status: item.status === "PASS" ? "Pass" : "Fail",
+      };
+    })
+    .sort((a, b) => {
+      // sort by class first, then roll number
+      if (a.classNumber !== b.classNumber) {
+        return a.classNumber - b.classNumber;
       }
-    };
+      return a.rollNumber - b.rollNumber;
+    });
+}
 
+
+  const fetchResults = async () => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/result`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            token: `Bearer ${localStorage.getItem("adminToken")}`,
+          },
+        }
+      );
+
+      let data = null;
+      try {
+        data = await res.json();
+      } catch (_) {}
+
+      if (res.ok) {
+        const transformed = transformResults(data?.body || []);
+        console.log(transformed);
+        setResults(transformed);
+        // setResults(data?.body || []);
+        // console.log(data?.body);
+      } else {
+        console.error("Failed to fetch results:", data?.message);
+      }
+    } catch (err) {
+      console.error("Error fetching results:", err);
+    }
+  };
+
+  useEffect(() => {
     fetchResults();
   }, []);
 
@@ -59,6 +90,7 @@ export default function ResultUpdate() {
       rollNumber: Number(formData.rollNumber),
       class: String(`CLASS_${formData.class}`),
     };
+    const tokens = localStorage.getItem("adminToken");
 
     try {
       const res = await fetch(
@@ -68,7 +100,7 @@ export default function ResultUpdate() {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
-            token: `Bearer ${localStorage.getItem("adminToken")}`,
+            token: `Bearer ${tokens}`,
           },
           body: JSON.stringify(payload),
         }
@@ -88,31 +120,83 @@ export default function ResultUpdate() {
           name: "",
           marks: "",
           class: "1",
-          status: "Pass",
+          status: "PASS",
         });
 
         alert("Result added successfully!");
+        fetchResults();
       } else {
         alert(data?.message || "Failed to add result");
+        fetchResults();
       }
     } catch (err) {
       console.error("Error adding result:", err);
     }
   };
 
-  const confirmDeleteOne = (index) => {
-    setConfirmDeleteIndex(index);
+  const handleDeleteById = async (id) => {
+    if (!id) return alert("❌ ID is required!");
+
+  
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/result/${id}`, // 🔹 dynamic id in URL
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+            token: `Bearer ${localStorage.getItem("adminToken")}`,
+          },
+        }
+      );
+
+      if (res.ok) {
+        fetchResults();
+        setConfirmDeleteIndex(null)
+      } else {
+        fetchResults();
+        setConfirmDeleteIndex(null)
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      fetchResults();
+      setConfirmDeleteIndex(null)
+    } finally {
+    }
   };
 
-  const handleDeleteConfirmed = () => {
-    const updatedResults = results.filter((_, i) => i !== confirmDeleteIndex);
-    setResults(updatedResults);
-    setConfirmDeleteIndex(null);
-  };
+  const handleDeleteAllConfirmed = async () => {
+    const tokens = localStorage.getItem("adminToken");
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/result`, // 🔹 your API endpoint
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            token: `Bearer ${tokens}`,
+          },
+        }
+      );
 
-  const handleDeleteAllConfirmed = () => {
-    setResults([]);
-    setConfirmDeleteAll(false);
+      if (res.ok) {
+        alert("✅ All data deleted successfully!");
+        setConfirmDeleteAll(false)
+              fetchResults();
+
+      } else {
+        alert("❌ Failed to delete data");
+        setConfirmDeleteAll(false)
+              fetchResults();
+
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("⚠️ Something went wrong");
+      setConfirmDeleteAll(false)
+    } finally {
+    }
   };
 
   return (
@@ -223,10 +307,10 @@ export default function ResultUpdate() {
                     .sort((a, b) => Number(a.class) - Number(b.class))
                     .map((res, index) => (
                       <tr key={res.id || index} className="text-center">
-                        <td className="border p-2">{res.rollNumber}</td>
-                        <td className="border p-2">{res.name}</td>
-                        <td className="border p-2">{res.marks}</td>
-                        <td className="border p-2">Class {res.class}</td>
+                        <td className="border p-2">{res?.rollNumber}</td>
+                        <td className="border p-2">{res?.name}</td>
+                        <td className="border p-2">{res?.marks}</td>
+                        <td className="border p-2">{res?.classNumber}</td>
                         <td
                           className={`border p-2 font-semibold ${
                             res.status === "Pass"
@@ -238,7 +322,7 @@ export default function ResultUpdate() {
                         </td>
                         <td className="border p-2">
                           <button
-                            onClick={() => confirmDeleteOne(index)}
+                            onClick={() => setConfirmDeleteIndex(res?._id)}
                             className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm sm:text-base"
                           >
                             Delete
@@ -249,18 +333,82 @@ export default function ResultUpdate() {
                 </tbody>
               </table>
             </div>
-
             <div className="mt-4 flex justify-center">
+              {" "}
               <button
                 onClick={() => setConfirmDeleteAll(true)}
                 className="w-full sm:w-auto bg-red-700 text-white px-6 py-2 rounded-lg hover:bg-red-800"
               >
-                Delete All
-              </button>
-            </div>
+                {" "}
+                Delete All{" "}
+              </button>{" "}
+            </div>{" "}
           </div>
         )}
       </div>
+
+      {confirmDeleteIndex !== null && (
+        <div className="fixed inset-0 bg-black/60 bg-opacity-40 flex items-center justify-center z-50">
+          {" "}
+          <div className="bg-white rounded-lg p-6 w-80 shadow-lg">
+            {" "}
+            <h3 className="text-lg font-semibold mb-4 text-center">
+              Confirm Delete
+            </h3>{" "}
+            <p className="mb-6 text-center">
+              Are you sure you want to delete this entry?
+            </p>{" "}
+            <div className="flex justify-between">
+              {" "}
+              <button
+                onClick={() => setConfirmDeleteIndex(null)}
+                className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+              >
+                {" "}
+                Cancel{" "}
+              </button>{" "}
+              <button
+                onClick={() => handleDeleteById(confirmDeleteIndex)}
+                className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+              >
+                {" "}
+                Delete{" "}
+              </button>{" "}
+            </div>{" "}
+          </div>{" "}
+        </div>
+      )}
+      {confirmDeleteAll && (
+        <div className="fixed inset-0 bg-black/60 bg-opacity-40 flex items-center justify-center z-50">
+          {" "}
+          <div className="bg-white rounded-lg p-6 w-80 shadow-lg">
+            {" "}
+            <h3 className="text-lg font-semibold mb-4 text-center">
+              Confirm Delete All
+            </h3>{" "}
+            <p className="mb-6 text-center">
+              Are you sure you want to delete all results?
+            </p>{" "}
+            <div className="flex justify-between">
+              {" "}
+              <button
+                onClick={() => setConfirmDeleteAll(false)}
+                className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+              >
+                {" "}
+                Cancel{" "}
+              </button>{" "}
+              <button
+                onClick={handleDeleteAllConfirmed}
+                className="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800"
+              >
+                {" "}
+                Delete All{" "}
+              </button>{" "}
+            </div>{" "}
+          </div>{" "}
+        </div>
+      )}
     </div>
   );
 }
