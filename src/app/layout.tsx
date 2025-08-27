@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "../../components/Navbar";
 import CTASection from "../../components/CTASection";
 import Footer from "../../components/Footer";
+import ProgressBar from "../../components/ProgressBar";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,6 +22,9 @@ export const metadata: Metadata = {
   description: "Welcome to PS Public School - Nurturing Excellence, Inspiring Futures.",
 };
 
+
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,6 +35,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
+        <ProgressBar></ProgressBar>
         <Navbar></Navbar>
         {children}
         <CTASection></CTASection>
