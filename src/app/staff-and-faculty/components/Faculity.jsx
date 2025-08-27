@@ -6,23 +6,23 @@ import { FaQuoteLeft } from "react-icons/fa";
 export default function Facilities() {
   const teachers = [
     {
-      name: "Dr. Anjali Sharma",
-      role: "Professor of Physics",
-      image: "/images/staff.jpg",
+      name: "Ms Sonam Rana",
+      role: "PGT Physics",
+      image: "/staff/Sonamrana.jpg",
       thought:
         "Teaching is not just about sharing knowledge; it’s about inspiring curiosity and a love for lifelong learning.",
     },
     {
-      name: "Mr. Rajesh Kumar",
-      role: "Mathematics Lecturer",
-      image: "/images/staff.jpg",
+      name: "Ms Anjali",
+      role: "PGT Maths",
+      image: "/staff/Anjali.jpg",
       thought:
         "I believe in making complex concepts simple, so that every student can understand and enjoy the subject.",
     },
     {
-      name: "Ms. Neha Verma",
-      role: "English Teacher",
-      image: "/images/staff.jpg",
+      name: "Mr Gaurav Aneja",
+      role: "TGT English",
+      image: "/staff/Gaurav.jpg",
       thought:
         "Language opens doors to cultures and ideas. My mission is to help students express themselves with confidence.",
     },
@@ -31,77 +31,129 @@ export default function Facilities() {
   const staff = [
     {
       id: 1,
-      name: "Anita Sharma",
-      role: "Mathematics Teacher",
-      image: "/images/staff.jpg",
+      name: "Ms Anita Sharma",
+      role: "PGT Hindi",
+      image: "/staff/Anitasharma.jpg",
     },
     {
       id: 2,
-      name: "Rajesh Kumar",
-      role: "Science Teacher",
-      image: "/images/staff.jpg",
+      name: "Ms Sonam Rana",
+      role: "PGT Physics",
+      image: "/staff/Sonamrana.jpg",
     },
     {
       id: 3,
-      name: "Sunita Verma",
-      role: "English Teacher",
-      image: "/images/staff.jpg",
+      name: "Mr. Kashish",
+      role: "PGT Chemistry",
+      image: "/staff/Kashish.jpg",
     },
     {
       id: 4,
-      name: "Amit Patel",
-      role: "History Teacher",
-      image: "/images/staff.jpg",
+      name: "Ms Manisha Sharma",
+      role: "PGT Com. Science",
+      image: "/staff/Manisha.jpg",
     },
     {
       id: 5,
-      name: "Meena Gupta",
-      role: "Geography Teacher",
-      image: "/images/staff.jpg",
+      name: "Ms Ritu",
+      role: "PGT English",
+      image: "/staff/Ritu.jpg",
     },
     {
       id: 6,
-      name: "Suresh Singh",
-      role: "Physical Education Teacher",
-      image: "/images/staff.jpg",
+      name: "Ms Anjali",
+      role: "PGT Maths",
+      image: "/staff/Anjali.jpg",
     },
     {
       id: 7,
-      name: "Priya Nair",
-      role: "Computer Science Teacher",
-      image: "/images/staff.jpg",
+      name: "Ms Reenu",
+      role: "PGT Computer",
+      image: "/staff/Reenu.jpg",
     },
     {
       id: 8,
-      name: "Vikram Joshi",
-      role: "Chemistry Teacher",
-      image: "/images/staff.jpg",
+      name: "Mr. Akshya",
+      role: "Physical Education",
+      image: "/staff/Akshya.jpg",
     },
     {
       id: 9,
-      name: "Neha Kapoor",
-      role: "Biology Teacher",
-      image: "/images/staff.jpg",
+      name: "Ms Neelam ",
+      role: "TGT",
+      image: "/staff/Neelam.jpg",
     },
     {
       id: 10,
-      name: "Arun Mishra",
-      role: "Physics Teacher",
-      image: "/images/staff.jpg",
+      name: "Ms Pinki ",
+      role: "TGT Maths",
+      image: "/staff/Pinki.jpg",
     },
     {
       id: 11,
-      name: "Kavita Das",
-      role: "Arts Teacher",
-      image: "/images/staff.jpg",
+      name: "Mr Gaurav Aneja",
+      role: "TGT English",
+      image: "/staff/Gaurav.jpg",
     },
     {
       id: 12,
-      name: "Manoj Yadav",
-      role: "Music Teacher",
-      image: "/images/staff.jpg",
+      name: "Ms Preeti",
+      role: "TGT Social Science",
+      image: "/staff/Preeti.jpg",
     },
+    {
+      id: 13,
+      name: "Mr Lokesh",
+      role: "TGT Social Science",
+      image: "/staff/Lokesh.jpg",
+    },
+    {
+      id: 14,
+      name: "Ms. Poonam",
+      role: "PRT",
+      image: "/staff/Poonam.jpg",
+    },
+    {
+      id: 15,
+      name: "Ms. Annu",
+      role: "PRT",
+      image: "/staff/Annu.jpg",
+    },
+    {
+      id: 16,
+      name: "Ms Priyanka",
+      role: "PRT",
+      image: "/staff/Priyanka.jpg",
+    },
+    {
+      id: 17,
+      name: "Ms Manju",
+      role: "PRT",
+      image: "/staff/Manju.jpg",
+    },
+    {
+      id: 18,
+      name: "Ms. Banti",
+      role: "PRT",
+      image: "/staff/Banti.jpg",
+    },
+    {
+      id: 19,
+      name: "Ms Geeta",
+      role: "Drawing Trainer",
+      image: "/staff/Geeta.jpg",
+    },
+    {
+      id: 20,
+      name: "Mr. Atual",
+      role: "Librarian",
+      image: "/staff/Atual.jpg",
+    },
+ 
   ];
+
+
+
   const staffgroup = [
     {
       id: 1,
@@ -117,7 +169,7 @@ export default function Facilities() {
     },
     {
       id: 3,
-      image: "/schoolimages/staff1.jpg",
+      image: "/schoolimages/soloprincipal.jpg",
     },
    
   ];
@@ -134,9 +186,9 @@ export default function Facilities() {
       image: "/schoolimages/principal.jpg",
     },
     {
-      name: "Mrs. Anita Sharma",
-      role: "Vice Principal",
-      image: "/schoolimages/vprincipal.jpg",
+      name: "SH. Ram Lal",
+      role: "Academic Manager",
+      image: "/schoolimages/headmaster.jpg",
     },
  
   ];
@@ -165,12 +217,66 @@ export default function Facilities() {
         </div>
       </section>
 
-      {/* Staff Section */}
-      {/* <section className="bg-white py-16 px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-4xl font-semibold text-blue-800 mb-10 text-center">
+    
+
+      <section className="bg-white py-10 md:py-16  px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-4xl font-semibold text-blue-900 mb-10 text-center">
           Our Dedicated Staff
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {staffgroup.map((person, index) => (
+            <div
+              key={index}
+              className="overflow-hidden rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
+            >
+              <Image
+                src={person.image}
+                alt={`Staff ${index + 1}`}
+                width={300}
+                height={300}
+                className="w-full h-40 sm:h-60 md:h-72 object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Management Section */}
+      <section className="bg-blue-50 py-8 md:py-16 px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-4xl font-semibold text-blue-900 mb-6 md:mb-10 text-center">
+          School Management
+        </h2>
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-10 max-w-4xl md:max-w-6xl mx-auto">
+          {management.map((member, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl shadow-lg sm:shadow-xl p-6 sm:p-8 text-center w-72 sm:w-80 hover:scale-105 transition"
+            >
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={150}
+                height={150}
+                className="w-22 h-22 sm:w-40 sm:h-40 rounded-full mx-auto object-cover"
+              />
+              <h3 className="mt-4 sm:mt-6 text-lg sm:text-2xl font-semibold text-gray-800">
+                {member.name}
+              </h3>
+              <p className="text-sm sm:text-base text-blue-600 font-medium">
+                {member.role}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+        {/* Staff Section */}
+      <section className="bg-white py-16 px-4 sm:px-6">
+        {/* <h2 className="text-2xl sm:text-4xl font-semibold text-blue-800 mb-10 text-center">
+          Our Dedicated Staff
+        </h2> */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
           {staff.map((person, index) => (
             <div
               key={index}
@@ -188,58 +294,6 @@ export default function Facilities() {
               </h3>
               <p className="text-sm sm:text-base text-gray-500">
                 {person.role}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
-      <section className="bg-white py-10 md:py-16  px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-4xl font-semibold text-blue-800 mb-10 text-center">
-          Our Dedicated Staff
-        </h2>
-
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {staffgroup.map((person, index) => (
-            <div
-              key={index}
-              className="overflow-hidden rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
-            >
-              <Image
-                src={person.image}
-                alt={`Staff ${index + 1}`}
-                width={300}
-                height={300}
-                className="w-full h-48 sm:h-60 md:h-72 object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Management Section */}
-      <section className="bg-blue-50 py-10 md:py-16 px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-4xl font-semibold text-blue-800 mb-10 text-center">
-          School Management
-        </h2>
-        <div className="flex flex-wrap justify-center gap-6 sm:gap-10 max-w-6xl mx-auto">
-          {management.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl shadow-lg sm:shadow-xl p-6 sm:p-8 text-center w-72 sm:w-80 hover:scale-105 transition"
-            >
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={150}
-                height={150}
-                className="w-28 h-28 sm:w-40 sm:h-40 rounded-full mx-auto object-cover"
-              />
-              <h3 className="mt-4 sm:mt-6 text-lg sm:text-2xl font-semibold text-gray-800">
-                {member.name}
-              </h3>
-              <p className="text-sm sm:text-base text-blue-600 font-medium">
-                {member.role}
               </p>
             </div>
           ))}

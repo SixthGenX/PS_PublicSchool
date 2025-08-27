@@ -1,12 +1,26 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa"; // npm install react-icons
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [logedin, setlogedin] = useState(false);
+  const navigate = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const user = localStorage.getItem("adminToken");
+    if (user) {
+      setlogedin(true);
+    }
+  }, []);
 
   const menuItems = [
     {
@@ -23,7 +37,6 @@ export default function Navbar() {
         { name: "Academics Overview", href: "/academic" },
         { name: "Facilities", href: "/facilities" },
         { name: "Student Life", href: "/student-life" },
-     
       ],
     },
     {
@@ -43,10 +56,20 @@ export default function Navbar() {
       ],
     },
     {
-      title: "Login",
+      title: logedin ? "Logout" : "Login",
       links: [
-        { name: "Admin Login", href: "/s" },
-
+        {
+          name: logedin ? "Logout" : "Admin Panel",
+          href: logedin ? "/logout" : "/admin-login",
+        },
+        ...(logedin
+          ? [
+              {
+                name: "Admin Panel",
+                href: "/admin-login/adminhome",
+              },
+            ]
+          : []),
       ],
     },
   ];
@@ -61,9 +84,23 @@ export default function Navbar() {
         {/* Top row */}
         <div className="flex justify-between items-center py-5">
           {/* Logo */}
-         <Link href="/"> <h1 className="text-2xl font-bold tracking-wide">PS Public School</h1></Link>
+          {/* <Link href="/"> <h1 className="text-2xl font-bold tracking-wide">PS Public School</h1></Link> */}
 
-          
+          <Link href="/" className="flex items-center gap-2">
+            {/* Logo/Image */}
+            <Image
+              src="/images/LOGON.png" // put your image inside /public/logo.png
+              alt="PS Public School Logo"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+
+            {/* Text */}
+            <h1 className="text-2xl font-bold tracking-wide">
+              PS Public School
+            </h1>
+          </Link>
           <ul className="hidden md:flex space-x-8 text-lg font-medium">
             {menuItems.map((menu) => (
               <li key={menu.title} className="relative">
@@ -86,7 +123,7 @@ export default function Navbar() {
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          onClick={() => setOpenMenu(null)} 
+                          onClick={() => setOpenMenu(null)}
                           className="block px-5 py-2 hover:bg-[#FBBF24] hover:text-[#111827] transition"
                         >
                           {link.name}

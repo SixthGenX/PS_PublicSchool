@@ -7,10 +7,15 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function Facilities() {
   const images = [
-    "/images/stafflab.jpg",
-    "/images/stafflab.jpg",
-    "/images/stafflab.jpg",
-    "/images/stafflab.jpg",
+    "/schoolimages/physicslab2.jpg",
+    "/schoolimages/computerlab2.jpg",
+    "/schoolimages/chemistrylab2.jpg",
+    "/schoolimages/biolab.jpg",
+    "/schoolimages/chemistrylab.jpg",
+    "/schoolimages/PHYSICS.jpg",
+    "/schoolimages/computerlab3.jpg",
+    "/schoolimages/biolab2.jpg",
+    "/schoolimages/CHEMLABG.jpg",
   ];
 
   const settings = {
@@ -60,10 +65,26 @@ export default function Facilities() {
       desc: "Our library offers a rich collection of books, journals, and digital resources to encourage reading and research among students.",
       img: "/images/stafflab.jpg",
     },
+
     {
-      title: "Science & Computer Labs",
-      desc: "Well-equipped labs for Physics, Chemistry, Biology, and Computer Science provide students with hands-on learning experiences.",
-      img: "/images/stafflab.jpg",
+      title: "Physics Lab",
+      desc: "The Physics Lab is designed to provide hands-on experience with experiments that help students explore the laws of physics in depth.",
+      img: "/schoolimages/physicslab.jpg",
+    },
+    {
+      title: "Computer Lab",
+      desc: "Our computer lab is equipped with modern systems and internet access, enabling students to gain essential technical skills.",
+      img: "/schoolimages/computerlab.jpg",
+    },
+    {
+      title: "Chemistry Lab",
+      desc: "Our Chemistry Lab is fully equipped with safety measures and modern apparatus, giving students practical exposure to chemical experiments.",
+      img: "/schoolimages/chemistrylab.jpg",
+    },
+    {
+      title: "Biology Lab",
+      desc: "The Biology Lab helps students understand life sciences better through microscopes, models, and detailed study of specimens.",
+      img: "/schoolimages/biolab.jpg",
     },
     {
       title: "Sports",
@@ -73,11 +94,6 @@ export default function Facilities() {
     {
       title: "Transport",
       desc: "Safe and reliable bus services are available for students across nearby towns and villages, ensuring hassle-free travel.",
-      img: "/images/stafflab.jpg",
-    },
-    {
-      title: "Hostel",
-      desc: "Our hostels provide a safe, comfortable, and homely environment with nutritious meals and supervision for outstation students.",
       img: "/images/stafflab.jpg",
     },
   ];
@@ -125,7 +141,7 @@ export default function Facilities() {
                 className="rounded-2xl object-cover w-full md:w-[50%] h-[220px] sm:h-[280px] md:h-[300px]"
               />
               <div className="flex-1">
-                <h2 className="text-2xl sm:text-3xl font-semibold text-blue-700 mb-3 sm:mb-4">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-blue-800 mb-3 sm:mb-4">
                   {item.title}
                 </h2>
                 <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -138,7 +154,7 @@ export default function Facilities() {
       </section>
 
       {/* Why Facilities Matter */}
-      <section className="bg-blue-50 py-16 md:py-24 px-4 md:px-16 lg:px-28 text-center">
+      <section className="bg-blue-50 py-12 md:py-18 px-4 md:px-16 lg:px-28 text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800 mb-6">
           Why Facilities Matter
         </h2>

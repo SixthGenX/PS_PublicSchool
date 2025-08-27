@@ -56,10 +56,10 @@ export default function AboutUs() {
             className="mt-6"
           >
             <Image
-              src="/images/logo-1.png"
+              src="/images/LOGO.png"
               alt="CBSE Logo"
-              width={120}
-              height={120}
+              width={130}
+              height={130}
               className="rounded-full shadow-xl border-4 border-pink-200 hover:scale-110 transition-transform duration-300"
             />
           </motion.div>
@@ -80,24 +80,23 @@ export default function AboutUs() {
 
         <div className="space-y-6 text-gray-700 text-lg text-justify leading-relaxed">
           <p>
-            Established in{" "}
-            <span className="font-semibold text-blue-800">1990</span>, our
-            school has grown from a small neighborhood institution to a renowned
-            educational center known for excellence in academics, sports, and
-            the arts. Over the past three decades, we have nurtured thousands of
-            students, preparing them for success in a rapidly changing world.
+            Founded in <span className="font-semibold text-blue-800">2006</span>
+            , our P.S. Public School has been dedicated to providing quality
+            education to the children of surrounding areas. From its humble
+            beginnings, the school has steadily grown into a respected
+            institution, focusing on both academic excellence and the all-round
+            development of students.
           </p>
 
           <div className="bg-white p-6 rounded-lg shadow-sm  border-l-4 border-blue-600">
             <p>
-              Our mission is simple yet powerful:{" "}
               <span className="italic">
-                to inspire curiosity, build confidence, and cultivate a lifelong
-                passion for learning
+                At P.S. Public School, our mission is to nurture young learners
+                into knowledgeable, disciplined, and responsible individuals.
               </span>
-              . We strive to create a safe, inclusive, and dynamic environment
-              where students can explore their potential, embrace challenges,
-              and develop into compassionate and capable citizens.
+              We aim to create a learning environment that encourages curiosity,
+              creativity, and confidence, preparing our students not only for
+              academic success but also for meaningful contributions to society.
             </p>
           </div>
         </div>
@@ -105,7 +104,7 @@ export default function AboutUs() {
 
       {/* Principal’s Message */}
       <section className="bg-white shadow-lg rounded-b-xl max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-4xl font-semibold text-blue-800 mb-6">
+        <h2 className="md:text-4xl text-3xl text-center md:text-left font-semibold text-blue-800 mb-6">
           Principal’s Message
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-8">
@@ -116,17 +115,20 @@ export default function AboutUs() {
           />
           <div>
             <p className="leading-relaxed text-lg text-justify mb-4">
-              “Education is not merely about acquiring knowledge — it’s about
-              shaping character, nurturing talents, and inspiring a vision for
-              the future. At our school, every child is valued, respected, and
-              encouraged to dream big. We focus on providing a balanced
-              education that develops both intellectual and emotional
-              intelligence.”
+              Dear Students, Parents, and Well-Wishers, <br></br>
+              <br></br> At P.S. Public School, we believe education is not just
+              about academics but about shaping values, character, and
+              curiosity. True success is built on discipline, hard work, and
+              resilience. To our dear students, always face challenges with
+              courage and never stop learning. To parents, your guidance and
+              support remain the foundation of your child’s growth.
             </p>
             <p className="leading-relaxed text-justify text-lg">
-              I invite you to be part of our vibrant community where students
-              are not just prepared for exams, but for life. Together, we can
-              build a brighter tomorrow.”
+              "Together, as teachers, parents, and students, we can create a
+              nurturing environment that encourages creativity, responsibility,
+              and respect. Let us continue working hand in hand to build bright
+              futures and responsible citizens who will contribute positively to
+              society.”
             </p>
             <p className="mt-4 font-semibold text-blue-700">
               — SH. Naveeen Kumar, Principal
@@ -180,7 +182,7 @@ export default function AboutUs() {
             {/* Headmaster */}
             <div className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
               <img
-                src="/images/aboutprinciple.jpg"
+                src="/schoolimages/headmaster.jpg"
                 alt="Headmaster"
                 className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-blue-500"
               />
@@ -204,9 +206,11 @@ export default function AboutUs() {
             Vision & Values
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
-            Our vision is to be a beacon of educational excellence, inspiring
-            students to achieve their fullest potential and contribute
-            meaningfully to society.
+            Our vision is to shape future leaders who embody values of
+            integrity, compassion, and lifelong learning. We aspire to be a
+            school where every child is inspired to achieve their full
+            potential, equipped with skills and confidence to face the
+            challenges of a dynamic world.
           </p>
         </div>
 

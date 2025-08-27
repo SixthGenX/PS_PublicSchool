@@ -1,20 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from "next/image";
 import { motion } from "framer-motion";
-import AdminDashboard from "./components/AdminDashboard"
-
-
+import AdminDashboard from "./components/AdminDashboard";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const navigate = useRouter();
+  useEffect(() => {
+    const user = localStorage.getItem("adminToken");
+    if (!user) {
+      navigate.push("/admin-login");
+    }
+  }, []);
   return (
     <>
-    <div className="bg-[#F9FAFB] text-[#111827]">
-    <AdminDashboard></AdminDashboard>
-     
-      
-    </div>
+      <div className="bg-[#F9FAFB] text-[#111827]">
+        <AdminDashboard></AdminDashboard>
+      </div>
     </>
   );
 }
