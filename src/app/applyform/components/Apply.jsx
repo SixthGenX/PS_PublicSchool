@@ -251,7 +251,7 @@ export default function AdmissionForm() {
                 required
                 className="border p-3 rounded-lg w-full"
               />
-              <div className="flex gap-2">
+              <div className="flex  flex-col sm:flex-row gap-2">
                 <input
                   type="text"
                   name="code"
