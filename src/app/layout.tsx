@@ -6,7 +6,6 @@ import CTASection from "../../components/CTASection";
 import Footer from "../../components/Footer";
 import ProgressBar from "../../components/ProgressBar";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,27 +18,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "PS Public School",
-  description: "Welcome to PS Public School - Nurturing Excellence, Inspiring Futures.",
+  description:
+    "Welcome to PS Public School - Nurturing Excellence, Inspiring Futures.",
 };
-
-
-
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
-        <ProgressBar></ProgressBar>
-        <Navbar></Navbar>
+        <ProgressBar />
+        <Navbar />
         {children}
-        <CTASection></CTASection>
-        <Footer></Footer>
+        <CTASection />
+        <Footer />
       </body>
     </html>
   );

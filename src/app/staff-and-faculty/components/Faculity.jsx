@@ -8,21 +8,21 @@ export default function Facilities() {
     {
       name: "Ms Sonam Rana",
       role: "PGT Physics",
-      image: "/staff/Sonamrana.jpg",
+      image: "/schoolimages/staff/Sonamrana.jpg",
       thought:
         "Teaching is not just about sharing knowledge; it’s about inspiring curiosity and a love for lifelong learning.",
     },
     {
       name: "Ms Anjali",
       role: "PGT Maths",
-      image: "/staff/Anjali.jpg",
+      image: "/schoolimages/staff/Anjali.jpg",
       thought:
         "I believe in making complex concepts simple, so that every student can understand and enjoy the subject.",
     },
     {
       name: "Mr Gaurav Aneja",
       role: "TGT English",
-      image: "/staff/Gaurav.jpg",
+      image: "/schoolimages/staff/Gaurav.jpg",
       thought:
         "Language opens doors to cultures and ideas. My mission is to help students express themselves with confidence.",
     },

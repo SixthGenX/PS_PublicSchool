@@ -57,9 +57,9 @@ const handleUpload = async (group) => {
 const updateDatesheet = async (classRange, imageId) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/date-sheets/${imageId}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/date-sheets/upsert`,
       {
-        method: "PUT",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           token: `Bearer ${localStorage.getItem("adminToken")}`, // ✅ fixed
@@ -72,7 +72,6 @@ const updateDatesheet = async (classRange, imageId) => {
 
     if (!res.ok || data.status?.apiCode === "DATE_SHEET_NOT_FOUND" || "RESULT_ALREADY_EXISTS") {
       console.log("No datesheet found, creating one...");
-      await createDatesheet(classRange, imageId);
       return;
     }
 
