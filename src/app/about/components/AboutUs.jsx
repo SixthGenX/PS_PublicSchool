@@ -288,6 +288,11 @@ export default function AboutUs() {
             alt="Certification Logo"
             className="h-24 object-contain"
           />
+          <img
+            src="/images/award4.jpg"
+            alt="Certification Logo"
+            className="h-24 object-contain"
+          />
         </div>
       </section>
     </div>

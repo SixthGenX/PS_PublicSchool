@@ -49,31 +49,31 @@ export default function Studentlife() {
               icon: <FaBookOpen />,
               title: "Literary Club",
               desc: "Fostering creativity through debates, essay writing, and poetry.",
-              img: "/images/schoolplayground.jpg",
+              img: "/images2/room.jpg",
             },
             {
               icon: <FaMusic />,
               title: "Music & Dance Club",
               desc: "Encouraging rhythm, melody, and movement.",
-              img: "/images/schoolplayground.jpg",
+              img: "/images2/dance2.jpg",
             },
             {
               icon: <FaFutbol />,
               title: "Sports Club",
               desc: "Football, cricket, basketball, athletics and more.",
-              img: "/images/schoolplayground.jpg",
+              img: "/images2/sports.jpg",
             },
             {
               icon: <FaTheaterMasks />,
               title: "Drama Club",
               desc: "Bringing imagination alive with stage plays and skits.",
-              img: "/images/schoolplayground.jpg",
+              img: "/images2/dance.jpg",
             },
             {
               icon: <FaUsers />,
               title: "Community Service",
               desc: "Volunteering activities and social impact projects.",
-              img: "/images/schoolplayground.jpg",
+              img: "/images2/room.jpg",
             },
             {
               icon: <FaTrophy />,
@@ -88,16 +88,16 @@ export default function Studentlife() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md p-5 sm:p-6 transition"
+              className="bg-white rounded-xl shadow-md p-2 sm:p-3 transition"
             >
               <Image
                 src={club.img}
                 alt={club.title}
                 width={400}
                 height={250}
-                className="rounded-lg mb-3 object-cover w-full h-40 sm:h-48"
+                className="rounded-lg mb-3 object-cover w-full h-70 "
               />
-              <div className="text-blue-600 text-2xl sm:text-3xl mb-2">
+              <div className="text-blue-600 text-2xl block sm:hidden sm:text-3xl mb-2">
                 {club.icon}
               </div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
@@ -112,7 +112,7 @@ export default function Studentlife() {
       </div>
 
       {/* Extracurricular Section */}
-      <div className="bg-blue-50 py-12 sm:py-16 rounded-2xl max-w-6xl mx-auto mb-14 px-4">
+      <div className="bg-blue-50 py-8 sm:py-14 rounded-2xl max-w-6xl mx-auto mb-14 px-4">
         <h2 className="text-2xl sm:text-3xl font-semibold text-blue-900 mb-8 text-center">
           Extracurricular Activities
         </h2>
@@ -121,22 +121,22 @@ export default function Studentlife() {
             {
               title: "Annual Cultural Fest",
               desc: "A grand celebration of music, dance, and arts where students showcase their creativity and talents.",
-              img: "/images/schoolplayground.jpg",
+              img: "/schoolimages/sports.jpg",
             },
             {
               title: "Sports Day",
               desc: "A day filled with excitement, competition, and teamwork across multiple sports events.",
-              img: "/images/schoolplayground.jpg",
+              img: "/schoolimages/a.jpg",
             },
             {
               title: "Science Fair",
               desc: "Innovative projects, experiments, and models displayed by students to spark curiosity.",
-              img: "/images/schoolplayground.jpg",
+              img: "/schoolimages/event1.jpg",
             },
             {
               title: "Community Outreach",
               desc: "Students participate in tree plantation, cleanliness drives, and social awareness campaigns.",
-              img: "/images/schoolplayground.jpg",
+              img: "/images2/sports2.jpg",
             },
           ].map((activity, i) => (
             <motion.div
@@ -145,21 +145,21 @@ export default function Studentlife() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md p-5 sm:p-6 flex flex-col items-center text-center transition"
+              className="bg-white rounded-xl shadow-md p-1 sm:p-2 flex flex-col items-center text-center transition"
             >
               <Image
                 src={activity.img}
                 alt={activity.title}
                 width={500}
-                height={300}
-                className="rounded-lg mb-3 object-cover w-full h-40 sm:h-48"
+                height={500}
+                className="rounded-lg mb-3 object-center w-full h-50 sm:h-[400px] object-cover"
               />
-              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">
+              {/* <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">
                 {activity.title}
               </h3>
               <p className="text-gray-600 text-sm sm:text-base">
                 {activity.desc}
-              </p>
+              </p> */}
             </motion.div>
           ))}
         </div>

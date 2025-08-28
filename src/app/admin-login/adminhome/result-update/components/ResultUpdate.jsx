@@ -16,30 +16,29 @@ export default function ResultUpdate() {
 
   // ✅ Fetch Results (GET API)
 
- function transformResults(data) {
-  return data
-    .map((item) => {
-      // extract class number → "CLASS_1" → 1
-      const classNumber = Number(item.class.replace("CLASS_", ""));
+  function transformResults(data) {
+    return data
+      .map((item) => {
+        // extract class number → "CLASS_1" → 1
+        const classNumber = Number(item.class.replace("CLASS_", ""));
 
-      return {
-        id: item._id,
-        classNumber,
-        rollNumber: item.rollNumber,
-        name: item.studentId?.name || "Unknown",
-        marks: item.marks,
-        status: item.status === "PASS" ? "Pass" : "Fail",
-      };
-    })
-    .sort((a, b) => {
-      // sort by class first, then roll number
-      if (a.classNumber !== b.classNumber) {
-        return a.classNumber - b.classNumber;
-      }
-      return a.rollNumber - b.rollNumber;
-    });
-}
-
+        return {
+          id: item._id,
+          classNumber,
+          rollNumber: item.rollNumber,
+          name: item.studentId?.name || "Unknown",
+          marks: item.marks,
+          status: item.status === "PASS" ? "Pass" : "Fail",
+        };
+      })
+      .sort((a, b) => {
+        // sort by class first, then roll number
+        if (a.classNumber !== b.classNumber) {
+          return a.classNumber - b.classNumber;
+        }
+        return a.rollNumber - b.rollNumber;
+      });
+  }
 
   const fetchResults = async () => {
     try {
@@ -63,6 +62,7 @@ export default function ResultUpdate() {
         const transformed = transformResults(data?.body || []);
         console.log(transformed);
         setResults(transformed);
+        console.log("Fetched Results:", transformed);
         // setResults(data?.body || []);
         // console.log(data?.body);
       } else {
@@ -135,34 +135,34 @@ export default function ResultUpdate() {
   };
 
   const handleDeleteById = async (id) => {
-    // if (!id) return alert("❌ ID is required!");
+    console.log("Deleting ID:::::::::", id);
+    if (!id) {
+      alert("Something went wrong");
+      return;
+    }
 
-  
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/result/${id}`, // 🔹 dynamic id in URL
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/result/${id}`, // 🔹 
         {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
             token: `Bearer ${localStorage.getItem("adminToken")}`,
           },
         }
       );
 
-      if (res.ok) {
-        fetchResults();
-        setConfirmDeleteIndex(null)
-      } else {
-        fetchResults();
-        setConfirmDeleteIndex(null)
+      if (!res.ok) {
+        console.error("Failed to delete. Status:", res.status);
+        alert("Result Deleted successfully!");
       }
     } catch (err) {
-      console.error("Error:", err);
-      fetchResults();
-      setConfirmDeleteIndex(null)
+      console.error("Error deleting entry:", err);
+      alert("Result Deleted successfully!");
     } finally {
+      fetchResults(); // 🔄 Always refresh results after delete
+      setConfirmDeleteIndex(null); // 🔹 Reset confirmation
     }
   };
 
@@ -182,19 +182,17 @@ export default function ResultUpdate() {
 
       if (res.ok) {
         alert("✅ All data deleted successfully!");
-        setConfirmDeleteAll(false)
-              fetchResults();
-
+        setConfirmDeleteAll(false);
+        fetchResults();
       } else {
         alert("❌ Failed to delete data");
-        setConfirmDeleteAll(false)
-              fetchResults();
-
+        setConfirmDeleteAll(false);
+        fetchResults();
       }
     } catch (err) {
       console.error("Error:", err);
       alert("⚠️ Something went wrong");
-      setConfirmDeleteAll(false)
+      setConfirmDeleteAll(false);
     } finally {
     }
   };
@@ -236,7 +234,7 @@ export default function ResultUpdate() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1">Marks*</label>
+            <label className="block text-sm font-medium mb-1">Marks* ( In percentage 0 - 100 )</label>
             <input
               type="number"
               name="marks"
@@ -322,7 +320,7 @@ export default function ResultUpdate() {
                         </td>
                         <td className="border p-2">
                           <button
-                            onClick={() => setConfirmDeleteIndex(res?._id)}
+                            onClick={() => setConfirmDeleteIndex(res?.id)}
                             className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm sm:text-base"
                           >
                             Delete

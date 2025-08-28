@@ -142,7 +142,7 @@ export default function Results() {
                             </td>
                             <td className="px-4 py-2 border">{student.name}</td>
                             <td className="px-4 py-2 border text-center">
-                              {student.marks}
+                              {student.marks}%
                             </td>
                             <td
                               className={`px-4 py-2 border text-center font-medium ${
