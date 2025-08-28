@@ -135,7 +135,7 @@ export default function ResultUpdate() {
   };
 
   const handleDeleteById = async (id) => {
-    if (!id) return alert("❌ ID is required!");
+    // if (!id) return alert("❌ ID is required!");
 
   
     try {

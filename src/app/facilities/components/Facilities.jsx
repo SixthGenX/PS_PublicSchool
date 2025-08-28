@@ -16,6 +16,7 @@ export default function Facilities() {
     "/schoolimages/computerlab3.jpg",
     "/schoolimages/biolab2.jpg",
     "/schoolimages/CHEMLABG.jpg",
+    "/schoolimages/a.jpg",
   ];
 
   const settings = {
@@ -89,7 +90,7 @@ export default function Facilities() {
     {
       title: "Sports",
       desc: "From cricket and football grounds to indoor games, we encourage physical fitness and teamwork through sports facilities.",
-      img: "/images/stafflab.jpg",
+      img: "/schoolimages/sports.jpg",
     },
     {
       title: "Transport",
@@ -202,7 +203,7 @@ export default function Facilities() {
       <section className="relative py-16 md:py-24 px-4 md:px-16 lg:px-28 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <Image
-            src="/images/stafflab.jpg"
+            src="/schoolimages/studentlife.jpg"
             alt="Student Life"
             width={700}
             height={450}
@@ -223,7 +224,7 @@ export default function Facilities() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-blue-900 text-white py-16 md:py-24 px-4 md:px-16 lg:px-28 text-center">
+      <section className="bg-blue-900 text-white py-10 md:py-18 px-4 md:px-16 lg:px-28 text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
           What Students Say
         </h2>

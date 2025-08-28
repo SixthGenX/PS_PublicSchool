@@ -168,7 +168,15 @@ export default function Facilities() {
       image: "/schoolimages/staff3.jpg",
     },
     {
-      id: 3,
+      id: 5,
+      image: "/schoolimages/staff4.jpg",
+    },
+    {
+      id: 6,
+      image: "/schoolimages/staff5.jpg",
+    },
+    {
+      id: 4,
       image: "/schoolimages/soloprincipal.jpg",
     },
    

@@ -274,17 +274,17 @@ export default function AboutUs() {
         </p>
         <div className="flex flex-wrap gap-6 mt-6">
           <img
-            src="/images/aboutaward.jpg"
+            src="/images/award.jpg"
             alt="Accreditation Logo"
             className="h-24 object-contain"
           />
           <img
-            src="/images/aboutaward2.jpg"
+            src="/images/award2.jpg"
             alt="Award Logo"
             className="h-24 object-contain"
           />
           <img
-            src="/images/aboutaward2.jpg"
+            src="/images/award3.jpg"
             alt="Certification Logo"
             className="h-24 object-contain"
           />
