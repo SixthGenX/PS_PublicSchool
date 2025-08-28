@@ -131,9 +131,11 @@ export default function LibraryManagement() {
       );
 
       if (res.ok) {
+         alert("Entry Deleted successfully!");
         fetchBooks();
         setConfirmation(null);
       } else {
+        alert("Something Went Wrong!");
         fetchBooks();
         setConfirmation(null);
       }

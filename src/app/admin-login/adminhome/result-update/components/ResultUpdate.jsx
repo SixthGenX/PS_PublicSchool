@@ -234,7 +234,7 @@ export default function ResultUpdate() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1">Marks* ( In percentage 0 - 100 )</label>
+            <label className="block text-sm font-medium mb-1">Percentage*</label>
             <input
               type="number"
               name="marks"
