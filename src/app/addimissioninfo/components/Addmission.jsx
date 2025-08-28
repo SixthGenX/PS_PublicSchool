@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { FileDown, ArrowRight, CheckCircle2, Phone, Mail, MapPin, CreditCard, ClipboardList } from "lucide-react";
+import Link from "next/link";
 
 export default function AdmissionPage() {
   const feesRef = useRef(null);
@@ -13,14 +14,27 @@ export default function AdmissionPage() {
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
-  const feeRows = [
-    { head: "Registration (one-time, non-refundable)", amount: "₹ 1,000" },
-    { head: "Admission (one-time)", amount: "₹ 5,000" },
-    { head: "Tuition (Monthly)", amount: "₹ 2,500 – ₹ 4,000 (Class-wise)" },
-    { head: "Lab / Library (Quarterly)", amount: "₹ 1,200" },
-    { head: "Activity (Quarterly)", amount: "₹ 800" },
-    { head: "Transport (Optional, Monthly)", amount: "₹ 1,000 – ₹ 2,000 (Route-wise)" },
-  ];
+const feeRows = [
+  { class: "Nursery", tuition: "₹1100", icard: "₹100", reg: "₹500", total: "₹1700" },
+  { class: "LKG", tuition: "₹1200", icard: "₹100", reg: "₹500", total: "₹1800" },
+  { class: "UKG", tuition: "₹1200", icard: "₹100", reg: "₹500", total: "₹1800" },
+  { class: "1st", tuition: "₹1200", icard: "₹100", reg: "₹500", total: "₹1800" },
+  { class: "2nd", tuition: "₹1200", icard: "₹100", reg: "₹500", total: "₹1800" },
+  { class: "3rd", tuition: "₹1200", icard: "₹100", reg: "₹500", total: "₹1800" },
+  { class: "4th", tuition: "₹1300", icard: "₹100", reg: "₹500", total: "₹1900" },
+  { class: "5th", tuition: "₹1300", icard: "₹100", reg: "₹500", total: "₹1900" },
+  { class: "6th", tuition: "₹1400", icard: "₹100", reg: "₹500", total: "₹2000" },
+  { class: "7th", tuition: "₹1400", icard: "₹100", reg: "₹500", total: "₹2000" },
+  { class: "8th", tuition: "₹1600", icard: "₹100", reg: "₹500", total: "₹2200" },
+  { class: "9th", tuition: "₹1800", icard: "₹100", reg: "₹500", total: "₹2400" },
+  { class: "10th", tuition: "₹1800", icard: "₹100", reg: "₹500", total: "₹2400" },
+  { class: "11th Medical", tuition: "₹2100", icard: "₹100", reg: "₹500", total: "₹2700" },
+  { class: "11th Commerce", tuition: "₹2000", icard: "₹100", reg: "₹500", total: "₹2600" },
+  { class: "11th Arts", tuition: "₹2000", icard: "₹100", reg: "₹500", total: "₹2600" },
+  { class: "12th Medical", tuition: "₹2100", icard: "₹100", reg: "₹500", total: "₹2700" },
+  { class: "12th Commerce", tuition: "₹2000", icard: "₹100", reg: "₹500", total: "₹2600" },
+  { class: "12th Arts", tuition: "₹2000", icard: "₹100", reg: "₹500", total: "₹2600" },
+];
 
   const documents = [
     "Birth Certificate (photocopy)",
@@ -70,11 +84,12 @@ export default function AdmissionPage() {
 
       {/* QUICK ACTIONS */}
       <section className="max-w-6xl mx-auto px-4 md:px-6 -mt-8 sm:-mt-10 relative z-20">
-        <div className="grid sm:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 gap-4">
           <a
-            href="/admission/admission-form.pdf"
+            href="/files/admission-form-final.pdf"
             target="_blank"
-            className="bg-white rounded-2xl shadow-md hover:shadow-lg p-4 sm:p-5 flex items-center gap-3 border border-gray-100"
+            download={true}
+            className="bg-white  rounded-2xl shadow-md hover:shadow-lg p-4 sm:p-5 flex items-center gap-3 border border-gray-100"
           >
             <ClipboardList className="text-blue-700" />
             <div>
@@ -83,17 +98,18 @@ export default function AdmissionPage() {
             </div>
           </a>
           <a
-            href="/admission/fee-structure.pdf"
+            href="/files/fees.jpg"
             target="_blank"
+            download={true}
             className="bg-white rounded-2xl shadow-md hover:shadow-lg p-4 sm:p-5 flex items-center gap-3 border border-gray-100"
           >
             <CreditCard className="text-blue-700" />
             <div>
-              <p className="font-semibold">Download Fee Structure (PDF)</p>
+              <p className="font-semibold">Download Fee Structure</p>
               <p className="text-xs text-gray-500">Updated for current session</p>
             </div>
           </a>
-          <a
+          {/* <a
             href="/admission/prospectus.pdf"
             target="_blank"
             className="bg-white rounded-2xl shadow-md hover:shadow-lg p-4 sm:p-5 flex items-center gap-3 border border-gray-100"
@@ -103,7 +119,7 @@ export default function AdmissionPage() {
               <p className="font-semibold">Prospectus</p>
               <p className="text-xs text-gray-500">Courses • Facilities • Policies</p>
             </div>
-          </a>
+          </a> */}
         </div>
       </section>
 
@@ -131,12 +147,12 @@ export default function AdmissionPage() {
                 </li>
               ))}
             </ol>
-            <a
+            <Link
               href="/applyform"
               className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
             >
               Apply Online <ArrowRight size={18} />
-            </a>
+            </Link>
           </div>
 
           {/* Offline */}
@@ -156,8 +172,9 @@ export default function AdmissionPage() {
               ))}
             </ol>
             <a
-              href="/admission/admission-form.pdf"
+              href="/files/admission-form-final.pdf"
               target="_blank"
+              download={true}
               className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-blue-700 border border-blue-200 font-medium hover:bg-blue-50 transition"
             >
               Download Form (PDF) <FileDown size={18} />
@@ -168,38 +185,45 @@ export default function AdmissionPage() {
 
       {/* FEE STRUCTURE */}
       <section ref={feesRef} id="fees" className="bg-white/60">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-14">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10">
           <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 text-center">Fee Structure</h2>
           <p className="text-gray-600 text-sm sm:text-base text-center mt-2 max-w-3xl mx-auto">
             Fee slabs vary by class. Transport is optional and route-based. All amounts are indicative.
           </p>
 
-          <div className="mt-8 overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
-            <table className="w-full text-left text-sm sm:text-base">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-4 sm:px-6 py-3 border-b">Head</th>
-                  <th className="px-4 sm:px-6 py-3 border-b">Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {feeRows.map((r, i) => (
-                  <tr key={i} className="hover:bg-gray-50">
-                    <td className="px-4 sm:px-6 py-3 border-b">{r.head}</td>
-                    <td className="px-4 sm:px-6 py-3 border-b font-semibold text-gray-800">{r.amount}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+         <div className="mt-8 overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
+  <table className="w-full text-left text-sm sm:text-base">
+    <thead className="bg-gray-50">
+      <tr>
+        <th className="px-4 sm:px-6 py-3 border-b">Class</th>
+        <th className="px-4 sm:px-6 py-3 border-b">Tuition Fee</th>
+        <th className="px-4 sm:px-6 py-3 border-b">I-Card</th>
+        <th className="px-4 sm:px-6 py-3 border-b">Reg. Fee</th>
+        <th className="px-4 sm:px-6 py-3 border-b">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {feeRows.map((r, i) => (
+        <tr key={i} className="hover:bg-gray-50">
+          <td className="px-4 sm:px-6 py-3 border-b">{r.class}</td>
+          <td className="px-4 sm:px-6 py-3 border-b">{r.tuition}</td>
+          <td className="px-4 sm:px-6 py-3 border-b">{r.icard}</td>
+          <td className="px-4 sm:px-6 py-3 border-b">{r.reg}</td>
+          <td className="px-4 sm:px-6 py-3 border-b font-semibold text-gray-800">{r.total}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
 
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-5 md:mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="/admission/fee-structure.pdf"
+              href="/files/fees.jpg"
               target="_blank"
+              download={true}
               className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
             >
-              Download Fee PDF <FileDown size={18} />
+              Download Fee  <FileDown size={18} />
             </a>
             <span className="text-xs sm:text-sm text-gray-500">
               * Scholarships / concessions available as per school policy.
@@ -209,7 +233,7 @@ export default function AdmissionPage() {
       </section>
 
       {/* DOCUMENTS REQUIRED */}
-      <section className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-14">
+      <section className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-10">
         <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 text-center">Documents Required</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
           {documents.map((d, i) => (
