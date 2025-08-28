@@ -262,7 +262,7 @@ export default function AboutUs() {
       </section>
 
       {/* Accreditations */}
-      <section className="bg-white shadow-lg rounded-xl max-w-6xl mx-auto px-6 py-16 mb-16">
+      <section className="bg-white shadow-lg rounded-xl max-w-6xl mx-auto px-6 py-8 md:py-14 mb-8">
         <h2 className="text-4xl font-semibold text-blue-800 mb-6">
           Accreditations
         </h2>
@@ -272,27 +272,58 @@ export default function AboutUs() {
           recognized with awards for excellence in STEM education, arts
           programs, and community outreach.
         </p>
-        <div className="flex flex-wrap gap-6 mt-6">
+        <div className="block sm:hidden">
+            <div className="flex flex-wrap gap-5 mt-6">
+          <div className="flex items-center justify-center gap-3 w-full">
+            <img
+              src="/images/award.jpg"
+              alt="Accreditation Logo"
+              className="h-28 object-contain"
+            />
+            <img
+              src="/images/award2.jpg"
+              alt="Award Logo"
+              className="h-28 object-contain"
+            />
+            <img
+              src="/images/award3.jpg"
+              alt="Certification Logo"
+              className="h-28 object-contain"
+            />
+          </div>
+          <div className="flex items-center justify-center w-full ">
+            <img
+              src="/images/award4.jpg"
+              alt="Certification Logo"
+              className="h-50 md:h-24 object-contain"
+            />
+          </div>
+        </div>
+        </div>
+        <div className="hidden sm:block">
+
+        <div className="flex flex-wrap gap-6 mt-6 ">
           <img
             src="/images/award.jpg"
             alt="Accreditation Logo"
-            className="h-24 object-contain"
+            className="h-34 object-contain"
           />
           <img
             src="/images/award2.jpg"
             alt="Award Logo"
-            className="h-24 object-contain"
+            className="h-34 object-contain"
           />
           <img
             src="/images/award3.jpg"
             alt="Certification Logo"
-            className="h-24 object-contain"
+            className="h-34 object-contain"
           />
           <img
             src="/images/award4.jpg"
             alt="Certification Logo"
-            className="h-24 object-contain"
+            className="h-50 md:h-34 object-contain"
           />
+        </div>
         </div>
       </section>
     </div>
