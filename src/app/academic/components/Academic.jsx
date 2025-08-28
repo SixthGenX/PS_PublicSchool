@@ -18,75 +18,9 @@ export default function Academic() {
   const toppers = [
     {
       name: "Aarav Sharma",
-      class: "Class 12",
-      score: "97%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Priya Mehta",
-      class: "Class 12",
-      score: "96.4%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Rohan Gupta",
-      class: "Class 10",
-      score: "95.8%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Ishita Verma",
-      class: "Class 10",
-      score: "95.5%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Kabir Singh",
-      class: "Class 12",
-      score: "95.2%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Simran Kaur",
-      class: "Class 12",
-      score: "94.9%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Ananya Joshi",
-      class: "Class 10",
-      score: "94.7%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Aditya Kumar",
-      class: "Class 12",
-      score: "94.5%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Neha Singh",
-      class: "Class 10",
-      score: "94.3%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Vikram Patel",
-      class: "Class 12",
-      score: "94.1%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Meera Nair",
-      class: "Class 12",
-      score: "94%",
-      image: "/images/student.jpg",
-    },
-    {
-      name: "Rahul Sinha",
-      class: "Class 10",
-      score: "93.8%",
-      image: "/images/student.jpg",
+      class: "Class 10th",
+      score: "96%",
+      image: "/student/mansi.jpg",
     },
   ];
 
@@ -199,7 +133,7 @@ export default function Academic() {
       {/* Curriculum Overview */}
       <section
         id="curriculum"
-        className="relative bg-gray-50 py-10 sm:py-18 px-4 sm:px-8"
+        className="relative bg-gray-50 py-8 sm:py-12 px-4 sm:px-8"
       >
         <div className="relative max-w-5xl sm:max-w-6xl mx-auto text-center">
           <h2 className="text-3xl sm:text-5xl font-bold text-blue-900 mb-6 sm:mb-10 tracking-wide">
@@ -222,7 +156,7 @@ export default function Academic() {
       {/* Subjects Offered */}
       <section
         id="subjects"
-        className="bg-gradient-to-b from-blue-50 to-white py-14 sm:py-18 px-4 sm:px-6"
+        className="bg-gradient-to-b from-blue-50 to-white py-8 sm:py-12 px-4 sm:px-6"
       >
         <div className="max-w-6xl mx-auto">
           <motion.h2
@@ -259,7 +193,7 @@ export default function Academic() {
       </section>
 
       {/* Teaching Methodology */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:pb-16">
         <h2 className="text-3xl sm:text-4xl font-semibold text-blue-800 mb-10 sm:mb-12 text-center sm:text-left">
           Teaching Methodology
         </h2>
@@ -299,7 +233,7 @@ export default function Academic() {
 
       <section
         id="alumni"
-        className="relative bg-blue-900 text-white py-12 sm:py-18 px-6 text-center overflow-hidden"
+        className="relative bg-blue-900 text-white py-8 sm:py-14 px-6 text-center overflow-hidden"
       >
         <div className="absolute inset-0">
           <img
@@ -332,7 +266,7 @@ export default function Academic() {
               <img
                 src={topper.image}
                 alt={topper.name}
-                className="w-full h-[250px] object-cover"
+                className="w-full h-[300px] object-cover"
               />
               <div className="p-4">
                 <h3 className=" text-sm md:text-lg font-bold text-blue-900">
@@ -349,7 +283,7 @@ export default function Academic() {
       </section>
 
       {/* Academic Calendar */}
-      <section className="bg-blue-50 py-16 sm:py-20 px-4">
+      <section className="bg-blue-50 py-8 sm:py-12 px-4">
         <div className="max-w-4xl sm:max-w-5xl mx-auto text-center">
           <Calendar className="mx-auto text-blue-700 w-12 h-12 sm:w-16 sm:h-16 mb-4 sm:mb-6" />
           <h2 className="text-3xl sm:text-4xl font-semibold text-blue-900 mb-3 sm:mb-4">

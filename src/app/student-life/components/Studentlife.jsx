@@ -40,12 +40,12 @@ export default function Studentlife() {
 
       {/* Clubs Section */}
       <div className="max-w-6xl mx-auto py-12 sm:py-16 px-4">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-blue-800 mb-8 text-center">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-blue-900 mb-8 text-center">
           Clubs & Societies
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {[
-            {
+            { 
               icon: <FaBookOpen />,
               title: "Literary Club",
               desc: "Fostering creativity through debates, essay writing, and poetry.",
@@ -69,17 +69,23 @@ export default function Studentlife() {
               desc: "Bringing imagination alive with stage plays and skits.",
               img: "/images2/dance.jpg",
             },
-            {
-              icon: <FaUsers />,
-              title: "Community Service",
-              desc: "Volunteering activities and social impact projects.",
-              img: "/images2/room.jpg",
-            },
+            // {
+            //   icon: <FaUsers />,
+            //   title: "Community Service",
+            //   desc: "Volunteering activities and social impact projects.",
+            //   img: "/images2/room.jpg",
+            // },
             {
               icon: <FaTrophy />,
               title: "Science & Tech Club",
-              desc: "Exploring robotics, coding, and innovative projects.",
-              img: "/images/schoolplayground.jpg",
+              desc: "Research,  and experiments",
+              img: "/schoolimages/chemistrylab.jpg",
+            },
+            {
+              icon: <FaTrophy />,
+              title: "Tech Club",
+              desc: "Exploring robotics, coding and digital innovations.",
+              img: "/schoolimages/computerlab.jpg",
             },
           ].map((club, i) => (
             <motion.div
@@ -112,11 +118,11 @@ export default function Studentlife() {
       </div>
 
       {/* Extracurricular Section */}
-      <div className="bg-blue-50 py-8 sm:py-14 rounded-2xl max-w-6xl mx-auto mb-14 px-4">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-blue-900 mb-8 text-center">
+      <div className="bg-blue-50 py-8 sm:py-12 rounded-2xl max-w-6xl mx-auto mb-8 md:mb-10 px-4">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-blue-900 mb-4 md:mb-8 text-center">
           Extracurricular Activities
         </h2>
-        <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           {[
             {
               title: "Annual Cultural Fest",
@@ -167,7 +173,7 @@ export default function Studentlife() {
 
       {/* Achievements Section */}
       <div className="max-w-6xl mx-auto pb-12 px-4">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-blue-800 mb-8 text-center">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-blue-800 mb-4 md:mb-8 text-center">
           Student Achievements
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">

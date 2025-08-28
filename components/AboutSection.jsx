@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutSection() {
   return (
-    <section className="bg-gray-50 py-8 md:py-16">
+    <section className="bg-gray-50 py-8 md:py-14">
       <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-8 items-center">
         
         {/* Left Image */}
@@ -32,12 +33,12 @@ export default function AboutSection() {
             a holistic education that focuses on academic excellence, character development, and the
             cultivation of essential life skills.
           </p>
-          <a
+          <Link
             href="/about"
             className="inline-block bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md hover:bg-blue-800 hover:scale-105 transition"
           >
-            Start Learning
-          </a>
+            About Our School
+          </Link>
         </div>
 
       </div>

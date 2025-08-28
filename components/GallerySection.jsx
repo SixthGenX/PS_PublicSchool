@@ -9,6 +9,9 @@ const images = [
   "/schoolimages/physicslab.jpg",
   "/schoolimages/staff2.jpg",
   "/schoolimages/event1.jpg",
+  "/images2/room.jpg",
+  "/images2/sports.jpg",
+  "/schoolimages/a.jpg",
 ];
 
 export default function GallerySection() {

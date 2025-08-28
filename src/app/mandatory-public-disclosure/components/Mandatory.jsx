@@ -36,7 +36,7 @@ const certificates = [
   },
   { title: "Land Certificate", file: "/certificates/Certificate-of-land.pdf" },
   { title: "Transfer Certificate (T.C)", file: "/certificates/TC.pdf" },
-  // { title: "Water Test Certificate", file: "/certificates/water-test.pdf" },
+  { title: "Water Test Certificate", file: "/certificates/water-and-hygine-certificate.pdf" },
 ];
 
 export default function Mandatory() {

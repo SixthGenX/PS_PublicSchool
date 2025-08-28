@@ -1,16 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SchoolInfo() {
   return (
-    <section className="bg-white py-14 px-6 text-center border-b overflow-hidden  border-gray-100 relative">
+    <section className="bg-white py-8 md:py-10  px-6 text-center border-b overflow-hidden  border-gray-100 relative">
       <Image
         src="/images/line.png"
         alt="School Building"
         width={500}
         height={450}
-        className="absolute w-full z-0 top-[50%] md:top-0"
+        className="absolute w-full z-0 top-[50%] md:top-0 "
       ></Image>
 
       
@@ -34,12 +35,12 @@ export default function SchoolInfo() {
         </p>
 
         {/* CTA Button */}
-        <a
-          href="#admissions"
-          className="mt-7 inline-block bg-blue-600 text-white px-6 py-2.5 rounded-full text-base font-medium hover:bg-blue-700 transition"
+        <Link
+          href="/addimissioninfo"
+          className="mt-7 inline-block relative z-1  bg-blue-600 text-white px-6 py-2.5 rounded-full text-base font-medium hover:bg-blue-700 transition cursor-pointer"
         >
           Start Learning
-        </a>
+        </Link>
       </div>
     </section>
   );
