@@ -233,13 +233,13 @@ export default function Facilities() {
             "The labs and library have given me countless opportunities to learn
             beyond the classroom."
             <span className="block mt-2 sm:mt-3 font-semibold">
-              - Student A
+              - Rashmi Sharma
             </span>
           </blockquote>
           <blockquote className="bg-white/10 p-4 sm:p-6 rounded-2xl italic text-base sm:text-lg">
-            "Sports and hostel life made my school experience unforgettable!"
+            "Sports life made my school experience unforgettable!"
             <span className="block mt-2 sm:mt-3 font-semibold">
-              - Student B
+              - Rohit Singh
             </span>
           </blockquote>
         </div>

@@ -16,34 +16,35 @@ type Event = {
 export default function NewsSection() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
-  const events: Event[] = [
-    {
-      id: 1,
-      title: "Annual Science Fair",
-      description: "Our school hosted the annual science fair where students showcased innovative projects and experiments.",
-      image: "/images/heronews.jpg",
-      details: "The science fair was a huge success with over 50 projects presented by students from all grades. Topics ranged from renewable energy to AI robotics. Winners will represent the school in the district-level competition."
-    },
-    {
-      id: 2,
-      title: "Sports Day Celebration",
-      description: "A fun-filled day with various sports activities and competitions for all students.",
-      image: "/images/heroabout.jpg",
-      details: "The annual sports day brought together students, teachers, and parents in a celebration of physical fitness and teamwork. Events included track races, relay, football, and tug-of-war."
-    },
-    {
-      id: 3,
-      title: "Art & Culture Exhibition",
-      description: "Students displayed their artistic talents in the annual art and culture exhibition.",
-      image: "/images/heronews.jpg",
-      details: "The exhibition featured paintings, sculptures, and performances representing diverse cultures. It was a colorful and inspiring event for the whole school community."
-    }
-  ];
+ const events: Event[] = [
+  {
+    id: 1,
+    title: "Annual Science Trip",
+    description: "Students visited the Nehru Planetarium in New Delhi.",
+    image: "/images2/sciencetrip.jpg",
+    details: "The Annual Science Trip gave students hands-on exposure to astronomy and space science at the Nehru Planetarium, New Delhi. They explored interactive exhibits, attended a sky show, and learned about celestial bodies, rockets, and space missions. The trip sparked curiosity and enhanced their scientific understanding beyond the classroom."
+  },
+  {
+    id: 2,
+    title: "Sports & Yoga Day",
+    description: "A full day dedicated to sports competitions and yoga sessions at school.",
+    image: "/schoolimages/sports.jpg",
+    details: "Sports & Yoga Day promoted fitness, teamwork, and mental well-being. Students participated in track and field events, football, volleyball, and tug-of-war. The day began with a yoga session highlighting the importance of mindfulness and balance. Teachers and parents also joined in to encourage a spirit of healthy competition and unity."
+  },
+  {
+    id: 3,
+    title: "Art & Culture Day",
+    description: "An exhibition and performances showcasing students’ artistic and cultural talents.",
+    image: "/images2/dance2.jpg",
+    details: "Art & Culture Day celebrated creativity and diversity through an exhibition of paintings, crafts, and sculptures, along with cultural performances such as dance, music, and drama. Students expressed their imagination and represented different traditions, making the event a vibrant and memorable celebration for the entire school community."
+  }
+];
+
 
   return (
     <section className="py-12  bg-[#F9FAFB] relative">
       <div className="container mx-auto px-4 z-[9] relative">
-        <h2 className="text-3xl font-bold text-[#1E3A8A] mb-6 text-center">Latest News & Events</h2>
+        <h2 className="text-3xl font-bold text-[#1E3A8A] mb-6 text-center">Events</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {events.map((event) => (
             <div

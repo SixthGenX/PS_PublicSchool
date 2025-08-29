@@ -29,7 +29,10 @@ const certificates = [
     file: "/certificates/fire-safety-Certificate.pdf",
   },
   { title: "DEO Certificate", file: "/certificates/DEO-Certificate.pdf" },
-  { title: "Hygienic & Safety Certificate", file: "/certificates/Hygienic.pdf" },
+  {
+    title: "Hygienic & Safety Certificate",
+    file: "/certificates/Hygienic.pdf",
+  },
   {
     title: "School Managing Committee",
     file: "/certificates/School-Managing-Committee-Certificate.pdf",

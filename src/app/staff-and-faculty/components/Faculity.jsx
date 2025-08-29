@@ -189,7 +189,7 @@ export default function Facilities() {
       image: "/schoolimages/director.jpg",
     },
       {
-      name: "SH. Naveeen Kumar",
+      name: "SH. Naveen Kumar",
       role: "Principal",
       image: "/schoolimages/principal.jpg",
     },

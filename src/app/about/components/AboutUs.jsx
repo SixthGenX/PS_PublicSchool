@@ -131,7 +131,7 @@ export default function AboutUs() {
               society.”
             </p>
             <p className="mt-4 font-semibold text-blue-700">
-              — SH. Naveeen Kumar, Principal
+              — SH. Naveen Kumar, Principal
             </p>
           </div>
         </div>

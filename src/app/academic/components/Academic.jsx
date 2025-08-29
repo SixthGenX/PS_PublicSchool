@@ -17,10 +17,22 @@ import {
 export default function Academic() {
   const toppers = [
     {
-      name: "Aarav Sharma",
+      name: "Mansi Kaushik",
       class: "Class 10th",
       score: "96%",
       image: "/student/mansi.jpg",
+    },
+    {
+      name: "Divey Kaushik ",
+      class: "Class 10th",
+      score: "95%",
+      image: "/student/divey.jpg",
+    },
+    {
+      name: "Nidhi",
+      class: "Class 10th",
+      score: "88%",
+      image: "/student/nidhi.jpg",
     },
   ];
 
