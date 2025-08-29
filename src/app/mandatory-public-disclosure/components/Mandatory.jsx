@@ -29,14 +29,14 @@ const certificates = [
     file: "/certificates/fire-safety-Certificate.pdf",
   },
   { title: "DEO Certificate", file: "/certificates/DEO-Certificate.pdf" },
-  { title: "Hygienic & Safety Certificate", file: "/certificates/hygiene.pdf" },
+  { title: "Hygienic & Safety Certificate", file: "/certificates/Hygienic.pdf" },
   {
     title: "School Managing Committee",
     file: "/certificates/School-Managing-Committee-Certificate.pdf",
   },
   { title: "Land Certificate", file: "/certificates/Certificate-of-land.pdf" },
   { title: "Transfer Certificate (T.C)", file: "/certificates/TC.pdf" },
-  { title: "Water Test Certificate", file: "/certificates/water-and-hygine-certificate.pdf" },
+  { title: "Water Test Certificate", file: "/certificates/water-test.pdf" },
 ];
 
 export default function Mandatory() {
