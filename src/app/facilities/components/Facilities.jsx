@@ -64,7 +64,7 @@ export default function Facilities() {
     {
       title: "Library",
       desc: "Our library offers a rich collection of books, journals, and digital resources to encourage reading and research among students.",
-      img: "/images/stafflab.jpg",
+      img: "/schoolimages/library.jpg",
     },
 
     {
@@ -92,11 +92,11 @@ export default function Facilities() {
       desc: "From cricket and football grounds to indoor games, we encourage physical fitness and teamwork through sports facilities.",
       img: "/schoolimages/sports.jpg",
     },
-    {
-      title: "Transport",
-      desc: "Safe and reliable bus services are available for students across nearby towns and villages, ensuring hassle-free travel.",
-      img: "/images/stafflab.jpg",
-    },
+    // {
+    //   title: "Transport",
+    //   desc: "Safe and reliable bus services are available for students across nearby towns and villages, ensuring hassle-free travel.",
+    //   img: "/images/stafflab.jpg",
+    // },
   ];
 
   return (
@@ -124,11 +124,11 @@ export default function Facilities() {
       </section>
 
       {/* Facilities Section */}
-      <section className="relative bg-gray-50 text-gray-900 py-12 md:py-20 px-4 md:px-12 lg:px-20">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-blue-800 mb-10 md:mb-16">
+      <section className="relative bg-gray-50 text-gray-900 py-10 md:py-16 px-4 md:px-12 lg:px-20">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-blue-800 mb-6 md:mb-10">
           Explore Our Facilities
         </h2>
-        <div className="grid gap-10 md:gap-14">
+        <div className="grid gap-5 md:gap-10">
           {facilities.map((item, idx) => (
             <div
               key={idx}

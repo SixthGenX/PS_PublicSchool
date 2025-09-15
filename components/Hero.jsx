@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -34,9 +35,9 @@ export default function Hero() {
             Providing quality education with a focus on academics, sports, and
             creativity.
           </p>
-          <button className="bg-[#FBBF24] text-[#111827] px-6 py-3 rounded-md font-semibold hover:bg-yellow-500 transition">
+          <Link href={"/student-life"} className="bg-[#FBBF24] relative z-1 cursor-pointer text-[#111827] px-6 py-3 rounded-md font-semibold hover:bg-yellow-500 transition">
             Explore More
-          </button>
+          </Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 40 }}

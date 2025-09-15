@@ -44,9 +44,24 @@ const certificates = [
 
 export default function Mandatory() {
   return (
-    <div className="min-h-screen bg-gray-50 py-16 px-6">
+    <div className="min-h-screen bg-gray-50 py-10 md:py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
+        {/* YouTube Video Section */}
+        <div
+          className="mb-12 relative w-full  overflow-hidden rounded-2xl shadow-lg"
+          style={{ paddingTop: "56.25%" }}
+        >
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/seyjSN9H3c0"
+            title="School Intro Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
+
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:mb-12">
           School Certificates & Documents
         </h1>
 
