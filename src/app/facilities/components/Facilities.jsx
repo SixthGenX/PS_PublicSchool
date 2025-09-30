@@ -83,6 +83,11 @@ export default function Facilities() {
       img: "/schoolimages/chemistrylab.jpg",
     },
     {
+      title: "Transport",
+      desc: "Safe and reliable bus services are available for students across nearby towns and villages, ensuring hassle-free travel.",
+      img: "/schoolimages/trans.jpg",
+    },
+    {
       title: "Biology Lab",
       desc: "The Biology Lab helps students understand life sciences better through microscopes, models, and detailed study of specimens.",
       img: "/schoolimages/biolab.jpg",
@@ -92,11 +97,7 @@ export default function Facilities() {
       desc: "From cricket and football grounds to indoor games, we encourage physical fitness and teamwork through sports facilities.",
       img: "/schoolimages/sports.jpg",
     },
-    // {
-    //   title: "Transport",
-    //   desc: "Safe and reliable bus services are available for students across nearby towns and villages, ensuring hassle-free travel.",
-    //   img: "/images/stafflab.jpg",
-    // },
+    
   ];
 
   return (

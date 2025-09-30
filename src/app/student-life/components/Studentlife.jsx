@@ -172,53 +172,50 @@ export default function Studentlife() {
       </div>
 
       {/* Achievements Section */}
-      <div className="max-w-6xl mx-auto pb-12 px-4">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-blue-800 mb-4 md:mb-8 text-center">
-          Student Achievements
-        </h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-          {[
-            {
-              title: "National Level Debate Champion",
-              desc: "Our Literary Club students secured 1st place at the National Debate Competition.",
-              img: "/images/schoolplayground.jpg",
-            },
-            {
-              title: "State Football Winners",
-              desc: "Our football team bagged the championship trophy at the state-level tournament.",
-              img: "/images/schoolplayground.jpg",
-            },
-            {
-              title: "Innovative Tech Project",
-              desc: "Science Club students developed a low-cost water purification system.",
-              img: "/images/schoolplayground.jpg",
-            },
-          ].map((ach, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md p-5 sm:p-6 transition"
-            >
-              <Image
-                src={ach.img}
-                alt={ach.title}
-                width={400}
-                height={250}
-                className="rounded-lg mb-3 object-cover w-full h-40 sm:h-48"
-              />
-              <h3 className="text-lg sm:text-xl font-bold text-gray-800">
-                {ach.title}
-              </h3>
-              <p className="text-gray-600 text-sm sm:text-base mt-1">
-                {ach.desc}
-              </p>
-            </motion.div>
-          ))}
+    <div className="max-w-6xl mx-auto pb-12 px-4">
+  <h2 className="text-2xl sm:text-3xl font-semibold text-blue-800 mb-4 md:mb-8 text-center">
+    Student Blogs 
+  </h2>
+  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+    {[
+      {
+        title: "My First Debate Experience",
+        desc: "When I first stepped on stage, I was nervous. But as I spoke, I realized I had a voice that mattered. This experience gave me confidence I never knew I had.",
+        author: "— Aditi, Class 10",
+      },
+      {
+        title: "Football and Friendship",
+        desc: "Winning the state championship was amazing, but the best part was the bond we built as a team. I learned that trust and support matter more than trophies.",
+        author: "— Rohan, Class 9",
+      },
+      {
+        title: "Science Beyond Books",
+        desc: "Working on the water purification project made me realize science isn’t just about exams. It’s about solving real problems and helping people live better.",
+        author: "— Meera, Class 11",
+      },
+    ].map((post, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: i * 0.1 }}
+        viewport={{ once: true }}
+        className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition flex flex-col"
+      >
+        <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
+          {post.title}
+        </h3>
+        <p className="text-gray-600 text-sm sm:text-base flex-grow leading-relaxed">
+          {post.desc}
+        </p>
+        <div className="mt-4 text-sm text-blue-600 font-medium italic">
+          {post.author}
         </div>
-      </div>
+      </motion.div>
+    ))}
+  </div>
+</div>
+
     </section>
   );
 }
