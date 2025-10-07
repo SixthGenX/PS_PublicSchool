@@ -28,8 +28,8 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="md:w-1/2"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Welcome to PS Public School
+          <h2 className="text-3xl md:text-5xl leading-[50px] md:leading-[60px] font-bold mb-4">
+            Welcome to <br></br> P. S. PUBLIC SCHOOL
           </h2>
           <p className="mb-6">
             Providing quality education with a focus on academics, sports, and

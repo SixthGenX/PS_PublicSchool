@@ -31,7 +31,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/admission"
+                href="/addimissioninfo"
                 className="hover:text-yellow-400 transition"
               >
                 Admission
@@ -39,10 +39,10 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/gallery"
+                href="/student-life"
                 className="hover:text-yellow-400 transition"
               >
-                Gallery
+                Students Life
               </Link>
             </li>
             <li>
@@ -68,7 +68,7 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-3 md:mb-4">Location</h3>
           <p className="leading-snug">
-            PS Public School, Sonipat, Haryana, India
+            P. S. PUBLIC SCHOOL, Sonipat, Haryana, India
           </p>
           <a
             href="https://www.google.com/maps?q=Sunrise+Public+School+Jaipur"
@@ -83,9 +83,9 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="mt-6 border-t border-white/20 pt-3 text-center text-sm">
-        © {new Date().getFullYear()} PS Public School. All rights reserved.
+        © {new Date().getFullYear()} P. S. PUBLIC SCHOOL. All rights reserved.
         <br />
-        <Link href={"https://sixthgenx.vercel.app/"} target="_blank">
+        <Link href={"https://sixthgenx.com/"} target="_blank">
           <p className="cursor-pointer  hover:text-yellow-400">
             Created by <span className="font-semibold  "> SixthGenX</span>
           </p>

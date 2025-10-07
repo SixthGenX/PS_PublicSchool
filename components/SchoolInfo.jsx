@@ -18,7 +18,7 @@ export default function SchoolInfo() {
       <div className="max-w-3xl mx-auto ">
         {/* School Name */}
         <h2 className="text-3xl md:text-4xl font-bold text-blue-700">
-          PS Public School
+          P. S. PUBLIC SCHOOL
         </h2>
 
         {/* Tagline */}

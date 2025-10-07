@@ -13,9 +13,9 @@ export default function AboutUs() {
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-extrabold text-[#a04b6e] drop-shadow-md"
+            className="text-5xl leading-[55px] md:text-7xl font-extrabold text-[#a04b6e] drop-shadow-md"
           >
-            PS PUBLIC SCHOOL
+            P. S. PUBLIC SCHOOL
           </motion.h1>
 
           {/* School Address */}

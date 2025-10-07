@@ -15,6 +15,10 @@ const certificates = [
     title: "School Society Certificate",
     file: "/certificates/School-Society-Certificate.pdf",
   },
+  {
+    title: "SLC",
+    file: "/certificates/SLC.pdf",
+  },
   { title: "NOC (1 to 12)", file: "/certificates/NOC-1-to-12.pdf" },
   {
     title: "CBSE Secondary Affiliation Certificate",

@@ -98,7 +98,7 @@ export default function Navbar() {
 
             {/* Text */}
             <h1 className="text-2xl font-bold tracking-wide">
-              PS Public School
+              P. S. PUBLIC SCHOOL
             </h1>
           </Link>
           <ul className="hidden md:flex space-x-8 text-lg font-medium">
